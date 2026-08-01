@@ -13,6 +13,7 @@ public class TournamentMode : MonoBehaviour
   [SerializeField] TMP_Text leaderBoardText;
   [SerializeField] Button backToSettingsButton;
   [SerializeField] Button startStopButton;
+  [SerializeField] Button nextPlayerButton;
 
   TournamentData tournamentData;
   Player currentPlayer;
@@ -20,9 +21,8 @@ public class TournamentMode : MonoBehaviour
 
   public void StartTournament(TournamentData data)
   {
-    currentPlayerIndex = -1; // Set to -1 so ChangePlayer will set it to 0 on first run
+    currentPlayerIndex = 0;
     startStopButton.interactable = true;
-    timerManager.ResetTimer();
     tournamentData = data;
     ChangePlayer();
     RenderRankings();
@@ -31,22 +31,25 @@ public class TournamentMode : MonoBehaviour
   public void RecordPlayerTime(float elapsedTime)
   {
     currentPlayer.Time = elapsedTime;
-    ChangePlayer();
     RenderRankings();
+
+    TournamentFinishedCheck();
+  }
+
+  public void HandleNextPlayer()
+  {
+    ChangePlayer();
+
+    startStopButton.interactable = true;
+    nextPlayerButton.gameObject.SetActive(false);
   }
 
   void ChangePlayer()
   {
-    currentPlayerIndex++;
-    if (currentPlayerIndex < tournamentData.Players.Count)
-    {
-      currentPlayer = tournamentData.Players[currentPlayerIndex];
-      playerText.text = currentPlayer.Name;
-    }
-    else
-    {
-      FinishTournament();
-    }
+    currentPlayer = tournamentData.Players[currentPlayerIndex];
+    playerText.text = currentPlayer.Name;
+
+    timerManager.ResetTimer();
   }
 
   void RenderRankings()
@@ -66,6 +69,22 @@ public class TournamentMode : MonoBehaviour
     return tournamentData.Players.OrderBy(player => Math.Abs(tournamentData.TargetSeconds - player.Time)).ToList();
   }
 
+  void TournamentFinishedCheck()
+  {
+    // Increase player list index
+    currentPlayerIndex++;
+    // Is there a player in queue?
+    if (currentPlayerIndex < tournamentData.Players.Count)
+    {
+      startStopButton.interactable = false;
+      nextPlayerButton.gameObject.SetActive(true);
+    }
+    else
+    {
+      FinishTournament();
+    }
+  }
+
   void FinishTournament()
   {
     startStopButton.interactable = false;
@@ -76,13 +95,8 @@ public class TournamentMode : MonoBehaviour
   public void BackToSettings()
   {
     tournamentSettingsPanel.ResetSettings();
-    tournamentSettingsPanel.gameObject.SetActive(true);
     backToSettingsButton.gameObject.SetActive(false);
     gameObject.SetActive(false);
-  }
-
-  void ResetTournament()
-  {
-
+    tournamentSettingsPanel.gameObject.SetActive(true);
   }
 }
