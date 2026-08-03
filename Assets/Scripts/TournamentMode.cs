@@ -28,7 +28,7 @@ public class TournamentMode : MonoBehaviour
     RenderRankings();
   }
 
-  public void RecordPlayerTime(float elapsedTime)
+  public void RecordPlayerTime(TimeSpan elapsedTime)
   {
     currentPlayer.Time = elapsedTime;
     RenderRankings();
@@ -59,14 +59,13 @@ public class TournamentMode : MonoBehaviour
 
     sortedplayerList.ForEach(player =>
     {
-      TimeSpan time = TimeSpan.FromSeconds(player.Time);
-      leaderBoardText.text += $"{player.Name} {time:ss\\:ff}s\n";
+      leaderBoardText.text += $"{player.Name} {player.Time:ss\\:ff}s\n";
     });
   }
 
   List<Player> GetSortedPlayersByTime()
   {
-    return tournamentData.Players.OrderBy(player => Math.Abs(tournamentData.TargetSeconds - player.Time)).ToList();
+    return tournamentData.Players.OrderBy(player => Math.Abs(tournamentData.TargetSeconds - player.Time.TotalSeconds)).ToList();
   }
 
   void TournamentFinishedCheck()

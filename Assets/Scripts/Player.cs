@@ -3,7 +3,7 @@ using System;
 public class Player
 {
   public string Name { get; set; }
-  public float Time { get; set; }
+  public TimeSpan Time { get; set; }
 
   public Player(string name)
   {

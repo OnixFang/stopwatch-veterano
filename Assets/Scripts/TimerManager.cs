@@ -1,7 +1,6 @@
 using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class TimerManager : MonoBehaviour
 {
@@ -10,6 +9,7 @@ public class TimerManager : MonoBehaviour
   [SerializeField] TournamentMode tournamentMode;
 
   float elapsedTime = 0f;
+  TimeSpan normalizedTime = TimeSpan.Zero;
   bool isRunning = false;
 
   void Update()
@@ -17,13 +17,14 @@ public class TimerManager : MonoBehaviour
     if (isRunning)
     {
       elapsedTime += Time.deltaTime;
-      UpdateTimerText(elapsedTime);
+      normalizedTime = TimeSpan.FromSeconds(MathF.Round(elapsedTime, 2));
+      UpdateTimerText(normalizedTime);
     }
   }
 
-  void UpdateTimerText(float seconds)
+  void UpdateTimerText(TimeSpan time)
   {
-    timerText.text = TimeSpan.FromSeconds(seconds).ToString(@"mm\:ss\:ff");
+    timerText.text = time.ToString(@"mm\:ss\:ff");
   }
 
   public void ResetTimer()
@@ -56,6 +57,6 @@ public class TimerManager : MonoBehaviour
     isRunning = false;
     startStopText.text = "Start";
 
-    tournamentMode.RecordPlayerTime(elapsedTime);
+    tournamentMode.RecordPlayerTime(normalizedTime);
   }
 }
