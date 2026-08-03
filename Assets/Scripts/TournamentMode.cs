@@ -54,13 +54,26 @@ public class TournamentMode : MonoBehaviour
 
   void RenderRankings()
   {
-    List<Player> sortedplayerList = GetSortedPlayersByTime();
+    List<Player> players = GetSortedPlayersByTime();
     leaderBoardText.text = "";
 
-    sortedplayerList.ForEach(player =>
+    for (int i = 0; i < players.Count; i++)
     {
-      leaderBoardText.text += $"{player.Name} {player.Time:ss\\:ff}s\n";
-    });
+      int position = i + 1;
+      string ordinal = GetOrdinal(position);
+      leaderBoardText.text += $"{position}<sup>{ordinal}</sup> - {players[i].Name} {players[i].Time:ss\\:ff}s\n";
+    }
+  }
+
+  string GetOrdinal(int position)
+  {
+    return position switch
+    {
+      1 => "st",
+      2 => "nd",
+      3 => "rd",
+      _ => "th",
+    };
   }
 
   List<Player> GetSortedPlayersByTime()
