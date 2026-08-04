@@ -1,14 +1,15 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 public class TournamentData
 {
-  public TournamentData(List<Player> players, int targetSeconds)
+  public TournamentData(List<Player> players, TimeSpan targetSeconds)
   {
     Players = players.ToList();
-    TargetSeconds = targetSeconds;
+    TargetTime = targetSeconds;
   }
 
   public List<Player> Players { get; set; }
-  public int TargetSeconds { get; set; }
+  public TimeSpan TargetTime { get; set; }
 }

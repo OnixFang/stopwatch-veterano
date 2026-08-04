@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -60,7 +61,7 @@ public class TournamentSettings : MonoBehaviour
 
   public TournamentData GetTournamentData()
   {
-    return new(players, int.Parse(targetTimeInput.text));
+    return new(players, TimeSpan.FromSeconds(int.Parse(targetTimeInput.text)));
   }
 
   public void ResetSettings()

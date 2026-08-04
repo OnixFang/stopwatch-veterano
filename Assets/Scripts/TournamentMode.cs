@@ -97,7 +97,7 @@ public class TournamentMode : MonoBehaviour
 
   List<Player> GetSortedPlayersByTime()
   {
-    return tournamentData.Players.OrderBy(player => Math.Abs(tournamentData.TargetSeconds - player.Time.TotalSeconds)).ToList();
+    return tournamentData.Players.OrderBy(player => (tournamentData.TargetTime - player.Time).Duration()).ToList();
   }
 
   void TournamentFinishedCheck()
