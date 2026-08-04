@@ -31,6 +31,7 @@ public class TournamentMode : MonoBehaviour
   public void RecordPlayerTime(TimeSpan elapsedTime)
   {
     currentPlayer.Time = elapsedTime;
+    currentPlayer.HasPlayed = true;
     RenderRankings();
 
     TournamentFinishedCheck();
@@ -57,11 +58,29 @@ public class TournamentMode : MonoBehaviour
     List<Player> players = GetSortedPlayersByTime();
     leaderBoardText.text = "";
 
+    int position = 0;
+    string ordinal = "";
+    TimeSpan? previousTime = null;
+    string positionText;
+
     for (int i = 0; i < players.Count; i++)
     {
-      int position = i + 1;
-      string ordinal = GetOrdinal(position);
-      leaderBoardText.text += $"{position}<sup>{ordinal}</sup> - {players[i].Name} {players[i].Time:ss\\:ff}s\n";
+      if (players[i].HasPlayed)
+      {
+        if (players[i].Time != previousTime)
+        {
+          position++;
+          ordinal = GetOrdinal(position);
+        }
+        positionText = $"{position}<sup>{ordinal}</sup>";
+      }
+      else
+      {
+        positionText = "--";
+      }
+
+      leaderBoardText.text += $"{positionText} - {players[i].Name} {players[i].Time:ss\\:ff}s\n";
+      previousTime = players[i].Time;
     }
   }
 
