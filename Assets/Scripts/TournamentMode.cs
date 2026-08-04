@@ -28,9 +28,10 @@ public class TournamentMode : MonoBehaviour
     RenderRankings();
   }
 
-  public void RecordPlayerTime(float elapsedTime)
+  public void RecordPlayerTime(TimeSpan elapsedTime)
   {
     currentPlayer.Time = elapsedTime;
+    currentPlayer.HasPlayed = true;
     RenderRankings();
 
     TournamentFinishedCheck();
@@ -54,19 +55,49 @@ public class TournamentMode : MonoBehaviour
 
   void RenderRankings()
   {
-    List<Player> sortedplayerList = GetSortedPlayersByTime();
+    List<Player> players = GetSortedPlayersByTime();
     leaderBoardText.text = "";
 
-    sortedplayerList.ForEach(player =>
+    int position = 0;
+    string ordinal = "";
+    TimeSpan? previousDifference = null;
+    string positionText;
+
+    for (int i = 0; i < players.Count; i++)
     {
-      TimeSpan time = TimeSpan.FromSeconds(player.Time);
-      leaderBoardText.text += $"{player.Name} {time:ss\\:ff}s\n";
-    });
+      if (players[i].HasPlayed)
+      {
+        if ((players[i].Time - tournamentData.TargetTime).Duration() != previousDifference)
+        {
+          position++;
+          ordinal = GetOrdinal(position);
+        }
+        positionText = $"{position}<sup>{ordinal}</sup>";
+      }
+      else
+      {
+        positionText = "--";
+      }
+
+      leaderBoardText.text += $"{positionText} - {players[i].Name} {players[i].Time:ss\\:ff}s\n";
+      previousDifference = (tournamentData.TargetTime - players[i].Time).Duration();
+    }
+  }
+
+  string GetOrdinal(int position)
+  {
+    return position switch
+    {
+      1 => "st",
+      2 => "nd",
+      3 => "rd",
+      _ => "th",
+    };
   }
 
   List<Player> GetSortedPlayersByTime()
   {
-    return tournamentData.Players.OrderBy(player => Math.Abs(tournamentData.TargetSeconds - player.Time)).ToList();
+    return tournamentData.Players.OrderBy(player => (tournamentData.TargetTime - player.Time).Duration()).ToList();
   }
 
   void TournamentFinishedCheck()
