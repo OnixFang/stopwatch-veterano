@@ -60,14 +60,14 @@ public class TournamentMode : MonoBehaviour
 
     int position = 0;
     string ordinal = "";
-    TimeSpan? previousTime = null;
+    TimeSpan? previousDifference = null;
     string positionText;
 
     for (int i = 0; i < players.Count; i++)
     {
       if (players[i].HasPlayed)
       {
-        if (players[i].Time != previousTime)
+        if ((players[i].Time - tournamentData.TargetTime).Duration() != previousDifference)
         {
           position++;
           ordinal = GetOrdinal(position);
@@ -80,7 +80,7 @@ public class TournamentMode : MonoBehaviour
       }
 
       leaderBoardText.text += $"{positionText} - {players[i].Name} {players[i].Time:ss\\:ff}s\n";
-      previousTime = players[i].Time;
+      previousDifference = (tournamentData.TargetTime - players[i].Time).Duration();
     }
   }
 
