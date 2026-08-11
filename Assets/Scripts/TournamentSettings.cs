@@ -9,7 +9,6 @@ public class TournamentSettings : MonoBehaviour
 {
   [SerializeField] TMP_InputField addPlayerInput;
   [SerializeField] TMP_InputField targetTimeInput;
-  [SerializeField] Button addPlayerButton;
   [SerializeField] TMP_Text playerListText;
   [SerializeField] TournamentMode tournamentPanel;
 
@@ -20,11 +19,6 @@ public class TournamentSettings : MonoBehaviour
     addPlayerInput.onSubmit.AddListener(text =>
     {
       AddPlayer(text);
-      addPlayerInput.ActivateInputField();
-    });
-    addPlayerButton.onClick.AddListener(() =>
-    {
-      AddPlayer(addPlayerInput.text);
       addPlayerInput.ActivateInputField();
     });
   }
