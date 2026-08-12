@@ -536,7 +536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &298897235
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1917,9 +1917,9 @@ RectTransform:
   - {fileID: 568248855}
   m_Father: {fileID: 1356160718}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 133.5, y: -26}
   m_SizeDelta: {x: 73, y: 52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &562734580
@@ -4171,9 +4171,9 @@ RectTransform:
   - {fileID: 1424271712}
   m_Father: {fileID: 1356160718}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 266.5, y: -26}
   m_SizeDelta: {x: 73, y: 52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1552795231
@@ -4798,7 +4798,7 @@ MonoBehaviour:
   playerEntryPrefab: {fileID: 7747765975533554681, guid: 4fb3a5a05cf18d8429f0ebbbf183e8e1, type: 3}
   playerList: {fileID: 2055978646}
   timeInputPanel: {fileID: 298897234}
-  targetTimeInput: {fileID: 0}
+  timerText: {fileID: 0}
   tournamentPanel: {fileID: 881838934}
 --- !u!1 &1706561397
 GameObject:
@@ -5672,7 +5672,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1902219127}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1652617234}
+        m_TargetAssemblyTypeName: TournamentSettings, Assembly-CSharp
+        m_MethodName: ShowPlayerEntryPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1902219127
 MonoBehaviour:
   m_ObjectHideFlags: 0

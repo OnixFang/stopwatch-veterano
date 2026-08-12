@@ -7,13 +7,21 @@ using UnityEngine.UI;
 
 public class TournamentSettings : MonoBehaviour
 {
+  [Header("Player Input")]
+  [SerializeField] GameObject playerInputPanel;
   [SerializeField] TMP_InputField addPlayerInput;
-  [SerializeField] TMP_InputField targetTimeInput;
   [SerializeField] PlayerEntry playerEntryPrefab;
   [SerializeField] Transform playerList;
+
+  [Header("Time Input")]
+  [SerializeField] GameObject timeInputPanel;
+  [SerializeField] TMP_Text timerText;
+
+  [Header("Tournament Mode")]
   [SerializeField] TournamentMode tournamentPanel;
 
   List<Player> players = new();
+  TimeSpan timer = TimeSpan.FromSeconds(3);
 
   void Awake()
   {
@@ -46,9 +54,26 @@ public class TournamentSettings : MonoBehaviour
     players.Remove(player);
   }
 
+  public void ShowTimeInputPanel()
+  {
+    // First screen, needs confirmation on player count
+    if (players.Count > 1)
+    {
+      playerInputPanel.SetActive(false);
+      timeInputPanel.SetActive(true);
+    }
+  }
+
+  public void ShowPlayerEntryPanel()
+  {
+    // Second screen to go back, no validation needed
+    timeInputPanel.SetActive(false);
+    playerInputPanel.SetActive(true);
+  }
+
   public void StartGame()
   {
-    if (players.Count > 1 && !string.IsNullOrWhiteSpace(targetTimeInput.text))
+    if (players.Count > 1 && timer != TimeSpan.Zero)
     {
       TournamentData data = GetTournamentData();
       tournamentPanel.StartTournament(data);
@@ -59,13 +84,17 @@ public class TournamentSettings : MonoBehaviour
 
   public TournamentData GetTournamentData()
   {
-    return new(players, TimeSpan.FromSeconds(int.Parse(targetTimeInput.text)));
+    return new(players, timer);
   }
 
   public void ResetSettings()
   {
     players.Clear();
-    targetTimeInput.text = "";
-    // empty player list
+    timer = TimeSpan.FromSeconds(3);
+
+    for (int i = playerList.childCount - 1; i >= 0; i--)
+    {
+      Destroy(playerList.GetChild(i).gameObject);
+    }
   }
 }
