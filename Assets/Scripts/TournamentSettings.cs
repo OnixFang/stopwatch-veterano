@@ -9,7 +9,8 @@ public class TournamentSettings : MonoBehaviour
 {
   [SerializeField] TMP_InputField addPlayerInput;
   [SerializeField] TMP_InputField targetTimeInput;
-  [SerializeField] TMP_Text playerListText;
+  [SerializeField] PlayerEntry playerEntryPrefab;
+  [SerializeField] Transform playerList;
   [SerializeField] TournamentMode tournamentPanel;
 
   List<Player> players = new();
@@ -30,16 +31,19 @@ public class TournamentSettings : MonoBehaviour
       return;
     }
 
-    Player newPlayer = new(name);
-    players.Add(newPlayer);
+    Player player = new(name);
+    players.Add(player);
 
     addPlayerInput.text = "";
-    playerListText.text = "";
 
-    players.ForEach(player =>
-    {
-      playerListText.text += $"{player.Name}\n";
-    });
+    PlayerEntry playerEntry = Instantiate(playerEntryPrefab, playerList);
+    playerEntry.SetPlayer(player);
+    playerEntry.RemovePlayerRequest += RemovePlayer;
+  }
+
+  public void RemovePlayer(Player player)
+  {
+    players.Remove(player);
   }
 
   public void StartGame()
@@ -62,6 +66,6 @@ public class TournamentSettings : MonoBehaviour
   {
     players.Clear();
     targetTimeInput.text = "";
-    playerListText.text = "";
+    // empty player list
   }
 }
