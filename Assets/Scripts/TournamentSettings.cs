@@ -1,9 +1,8 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class TournamentSettings : MonoBehaviour
 {
@@ -28,8 +27,14 @@ public class TournamentSettings : MonoBehaviour
     addPlayerInput.onSubmit.AddListener(text =>
     {
       AddPlayer(text);
-      addPlayerInput.ActivateInputField();
+      StartCoroutine(ReactivatePlayerInput());
     });
+  }
+
+  IEnumerator ReactivatePlayerInput()
+  {
+    yield return null;
+    addPlayerInput.ActivateInputField();
   }
 
   public void AddPlayer(string name)
