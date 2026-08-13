@@ -1965,7 +1965,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 562734581}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1652617234}
+        m_TargetAssemblyTypeName: TournamentSettings, Assembly-CSharp
+        m_MethodName: SubtractSecond
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &562734581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4219,7 +4231,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1552795232}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1652617234}
+        m_TargetAssemblyTypeName: TournamentSettings, Assembly-CSharp
+        m_MethodName: AddSecond
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1552795232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4798,7 +4822,7 @@ MonoBehaviour:
   playerEntryPrefab: {fileID: 7747765975533554681, guid: 4fb3a5a05cf18d8429f0ebbbf183e8e1, type: 3}
   playerList: {fileID: 2055978646}
   timeInputPanel: {fileID: 298897234}
-  timerText: {fileID: 0}
+  timerText: {fileID: 1734621919}
   tournamentPanel: {fileID: 881838934}
 --- !u!1 &1706561397
 GameObject:

@@ -19,16 +19,21 @@ public class TournamentSettings : MonoBehaviour
   [Header("Tournament Mode")]
   [SerializeField] TournamentMode tournamentPanel;
 
+  // Tournament data
   List<Player> players = new();
   TimeSpan timer = TimeSpan.FromSeconds(3);
 
   void Awake()
   {
+    // Add addPlayer event to playerInputq
     addPlayerInput.onSubmit.AddListener(text =>
     {
       AddPlayer(text);
       StartCoroutine(ReactivatePlayerInput());
     });
+
+    // Render initial timer
+    RenderTimer();
   }
 
   IEnumerator ReactivatePlayerInput()
@@ -41,6 +46,7 @@ public class TournamentSettings : MonoBehaviour
   {
     if (string.IsNullOrWhiteSpace(name))
     {
+      Debug.Log("Player input empty, cannot create player.");
       return;
     }
 
@@ -59,6 +65,40 @@ public class TournamentSettings : MonoBehaviour
     players.Remove(player);
   }
 
+  public void AddSecond()
+  {
+    if (timer < TimeSpan.FromSeconds(99))
+    {
+      timer += TimeSpan.FromSeconds(1);
+      RenderTimer();
+    }
+    else
+    {
+      Debug.Log("Cannot increase timer");
+    }
+  }
+
+  public void SubtractSecond()
+  {
+    if (timer > TimeSpan.FromSeconds(1))
+    {
+      timer -= TimeSpan.FromSeconds(1);
+      RenderTimer();
+    }
+    else
+    {
+      Debug.Log("Cannot reduce timer");
+    }
+  }
+
+  void RenderTimer()
+  {
+    int seconds = (int)timer.TotalSeconds;
+    int centiseconds = timer.Milliseconds / 10;
+
+    timerText.text = $"{seconds:00}:{centiseconds:00}";
+  }
+
   public void ShowTimeInputPanel()
   {
     // First screen, needs confirmation on player count
@@ -66,6 +106,10 @@ public class TournamentSettings : MonoBehaviour
     {
       playerInputPanel.SetActive(false);
       timeInputPanel.SetActive(true);
+    }
+    else
+    {
+      Debug.Log("Insuficient players to play.");
     }
   }
 
@@ -78,12 +122,16 @@ public class TournamentSettings : MonoBehaviour
 
   public void StartGame()
   {
-    if (players.Count > 1 && timer != TimeSpan.Zero)
+    if (players.Count > 1 && timer <= TimeSpan.Zero)
     {
       TournamentData data = GetTournamentData();
       tournamentPanel.StartTournament(data);
       tournamentPanel.gameObject.SetActive(true);
       gameObject.SetActive(false);
+    }
+    else
+    {
+      Debug.Log("Insuficient players or invalid timer.");
     }
   }
 
