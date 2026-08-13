@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 public class TournamentMode : MonoBehaviour
 {
-  [SerializeField] TournamentSettings tournamentSettingsPanel;
+  [SerializeField] TournamentSettings tournamentSettings;
+  [SerializeField] GameObject playerInputPanel;
   [SerializeField] TimerManager timerManager;
   [SerializeField] TMP_Text playerText;
   [SerializeField] TMP_Text leaderBoardText;
@@ -125,9 +126,9 @@ public class TournamentMode : MonoBehaviour
 
   public void BackToSettings()
   {
-    tournamentSettingsPanel.ResetSettings();
+    tournamentSettings.ResetSettings();
     backToSettingsButton.gameObject.SetActive(false);
     gameObject.SetActive(false);
-    tournamentSettingsPanel.gameObject.SetActive(true);
+    playerInputPanel.SetActive(true);
   }
 }
