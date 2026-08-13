@@ -5,8 +5,8 @@ using UnityEngine;
 public class TimerManager : MonoBehaviour
 {
   [SerializeField] TMP_Text timerText;
-  [SerializeField] TMP_Text startStopText;
   [SerializeField] TournamentMode tournamentMode;
+  [SerializeField] GameObject tipPanel;
 
   float elapsedTime = 0f;
   TimeSpan normalizedTime = TimeSpan.Zero;
@@ -24,12 +24,15 @@ public class TimerManager : MonoBehaviour
 
   void UpdateTimerText(TimeSpan time)
   {
-    timerText.text = time.ToString(@"mm\:ss\:ff");
+    int seconds = (int)time.TotalSeconds;
+    int centiseconds = time.Milliseconds / 10;
+
+    timerText.text = $"{seconds:00}:{centiseconds:00}";
   }
 
   public void ResetTimer()
   {
-    timerText.text = TimeSpan.Zero.ToString(@"mm\:ss\:ff");
+    timerText.text = TimeSpan.Zero.ToString(@"ss\:ff");
   }
 
   public void StartStopTimer()
@@ -49,13 +52,12 @@ public class TimerManager : MonoBehaviour
     elapsedTime = 0f;
 
     isRunning = true;
-    startStopText.text = "Stop";
+    tipPanel.SetActive(false);
   }
 
   public void StopTimer()
   {
     isRunning = false;
-    startStopText.text = "Start";
 
     tournamentMode.RecordPlayerTime(normalizedTime);
   }

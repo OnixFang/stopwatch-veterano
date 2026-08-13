@@ -9,12 +9,13 @@ public class TournamentMode : MonoBehaviour
 {
   [SerializeField] TournamentSettings tournamentSettings;
   [SerializeField] GameObject playerInputPanel;
+  [SerializeField] RankingPanel rankingPanel;
   [SerializeField] TimerManager timerManager;
-  [SerializeField] TMP_Text playerText;
-  [SerializeField] TMP_Text leaderBoardText;
   [SerializeField] Button backToSettingsButton;
   [SerializeField] Button startStopButton;
   [SerializeField] Button nextPlayerButton;
+  [SerializeField] TMP_Text objectiveText;
+  [SerializeField] GameObject tipPanel;
 
   TournamentData tournamentData;
   Player currentPlayer;
@@ -25,8 +26,17 @@ public class TournamentMode : MonoBehaviour
     currentPlayerIndex = 0;
     startStopButton.interactable = true;
     tournamentData = data;
+    objectiveText.text = $"Objetivo\n{GetObjectiveText(data.TargetTime)}";
     ChangePlayer();
     RenderRankings();
+  }
+
+  public string GetObjectiveText(TimeSpan time)
+  {
+    int seconds = (int)time.TotalSeconds;
+    int centiseconds = time.Milliseconds / 10;
+
+    return $"{seconds:00}:{centiseconds:00}";
   }
 
   public void RecordPlayerTime(TimeSpan elapsedTime)
@@ -44,12 +54,13 @@ public class TournamentMode : MonoBehaviour
 
     startStopButton.interactable = true;
     nextPlayerButton.gameObject.SetActive(false);
+    tipPanel.SetActive(true);
   }
 
   void ChangePlayer()
   {
     currentPlayer = tournamentData.Players[currentPlayerIndex];
-    playerText.text = currentPlayer.Name;
+    // playerText.text = currentPlayer.Name;
 
     timerManager.ResetTimer();
   }
@@ -57,48 +68,13 @@ public class TournamentMode : MonoBehaviour
   void RenderRankings()
   {
     List<Player> players = GetSortedPlayersByTime();
-    leaderBoardText.text = "";
 
-    int position = 0;
-    string ordinal = "";
-    TimeSpan? previousDifference = null;
-    string positionText;
-
-    for (int i = 0; i < players.Count; i++)
-    {
-      if (players[i].HasPlayed)
-      {
-        if ((players[i].Time - tournamentData.TargetTime).Duration() != previousDifference)
-        {
-          position++;
-          ordinal = GetOrdinal(position);
-        }
-        positionText = $"{position}<sup>{ordinal}</sup>";
-      }
-      else
-      {
-        positionText = "--";
-      }
-
-      leaderBoardText.text += $"{positionText} - {players[i].Name} {players[i].Time:ss\\:ff}s\n";
-      previousDifference = (tournamentData.TargetTime - players[i].Time).Duration();
-    }
-  }
-
-  string GetOrdinal(int position)
-  {
-    return position switch
-    {
-      1 => "st",
-      2 => "nd",
-      3 => "rd",
-      _ => "th",
-    };
+    rankingPanel.RenderRankings(players, tournamentData.TargetTime);
   }
 
   List<Player> GetSortedPlayersByTime()
   {
-    return tournamentData.Players.OrderBy(player => (tournamentData.TargetTime - player.Time).Duration()).ToList();
+    return tournamentData.Players.FindAll(player => player.HasPlayed).OrderBy(player => (tournamentData.TargetTime - player.Time).Duration()).ToList();
   }
 
   void TournamentFinishedCheck()

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 80f52dd98c8b27742bd65e06ff6309f9
+guid: 960f913f23f66aa43b77f8be6b5c331f
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Pixel Digivolve
+  - PC Senior
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
