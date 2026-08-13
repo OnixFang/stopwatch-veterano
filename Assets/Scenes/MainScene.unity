@@ -6142,7 +6142,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   titleScreenPanel: {fileID: 2099343266}
-  cancelAction: {fileID: 7727032971491509709, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   playerInputPanel: {fileID: 771584925}
   addPlayerInput: {fileID: 1890399093}
   playerEntryPrefab: {fileID: 7747765975533554681, guid: 4fb3a5a05cf18d8429f0ebbbf183e8e1, type: 3}
