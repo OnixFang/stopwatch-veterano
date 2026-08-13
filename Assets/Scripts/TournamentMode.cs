@@ -14,6 +14,8 @@ public class TournamentMode : MonoBehaviour
   [SerializeField] Button backToSettingsButton;
   [SerializeField] Button startStopButton;
   [SerializeField] Button nextPlayerButton;
+  [SerializeField] TMP_Text objectiveText;
+  [SerializeField] GameObject tipPanel;
 
   TournamentData tournamentData;
   Player currentPlayer;
@@ -24,8 +26,17 @@ public class TournamentMode : MonoBehaviour
     currentPlayerIndex = 0;
     startStopButton.interactable = true;
     tournamentData = data;
+    objectiveText.text = $"Objetivo\n{GetObjectiveText(data.TargetTime)}";
     ChangePlayer();
     RenderRankings();
+  }
+
+  public string GetObjectiveText(TimeSpan time)
+  {
+    int seconds = (int)time.TotalSeconds;
+    int centiseconds = time.Milliseconds / 10;
+
+    return $"{seconds:00}:{centiseconds:00}";
   }
 
   public void RecordPlayerTime(TimeSpan elapsedTime)
@@ -43,6 +54,7 @@ public class TournamentMode : MonoBehaviour
 
     startStopButton.interactable = true;
     nextPlayerButton.gameObject.SetActive(false);
+    tipPanel.SetActive(true);
   }
 
   void ChangePlayer()
