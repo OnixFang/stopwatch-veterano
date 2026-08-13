@@ -3809,6 +3809,7 @@ GameObject:
   - component: {fileID: 1137802208}
   - component: {fileID: 1137802207}
   - component: {fileID: 1137802206}
+  - component: {fileID: 1137802210}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3903,6 +3904,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1137802210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137802205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d13bf5bba24666d4ba521860a28f0dd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TestComponent
 --- !u!1 &1151557686
 GameObject:
   m_ObjectHideFlags: 0
@@ -7685,6 +7698,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   tournamentSettingsPanel: {fileID: 1652617231}
+  navigateAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  firstMenuObject: {fileID: 1819080630}
 --- !u!1 &2111683122
 GameObject:
   m_ObjectHideFlags: 0

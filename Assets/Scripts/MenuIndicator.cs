@@ -1,13 +1,10 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class MenuIndicator : MonoBehaviour
 {
   [SerializeField] Vector2 offset = new(0f, 0f);
   [SerializeField] GameObject arrowIndicator;
-
-  GameObject currentSelected;
 
   void Update()
   {
@@ -21,23 +18,16 @@ public class MenuIndicator : MonoBehaviour
       {
         arrowIndicator.SetActive(false);
       }
-
-      return;
     }
-
-    // If the selection changed and it is a valid Selectable (like a button)
-    if (selected != currentSelected && selected.GetComponent<Selectable>() != null)
+    else
     {
-      // Ensure the arrow is visible
-      currentSelected = selected;
-
       if (!arrowIndicator.activeSelf)
       {
         arrowIndicator.SetActive(true);
       }
 
       // Move the arrow to the active item's position
-      MoveArrowToTarget(currentSelected.GetComponent<RectTransform>());
+      MoveArrowToTarget(selected.GetComponent<RectTransform>());
     }
   }
 
