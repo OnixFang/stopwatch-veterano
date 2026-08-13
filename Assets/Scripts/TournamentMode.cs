@@ -25,6 +25,7 @@ public class TournamentMode : MonoBehaviour
   {
     currentPlayerIndex = 0;
     startStopButton.interactable = true;
+    startStopButton.Select();
     tournamentData = data;
     objectiveText.text = $"Objetivo\n{GetObjectiveText(data.TargetTime)}";
     ChangePlayer();
@@ -53,6 +54,7 @@ public class TournamentMode : MonoBehaviour
     ChangePlayer();
 
     startStopButton.interactable = true;
+    startStopButton.Select();
     nextPlayerButton.gameObject.SetActive(false);
     tipPanel.SetActive(true);
   }
