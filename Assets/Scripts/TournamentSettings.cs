@@ -21,7 +21,16 @@ public class TournamentSettings : MonoBehaviour
 
   // Tournament data
   List<Player> players = new();
-  TimeSpan timer = TimeSpan.FromSeconds(3);
+  TimeSpan _timer = TimeSpan.FromSeconds(3);
+  TimeSpan Timer
+  {
+    get => _timer;
+    set
+    {
+      _timer = value;
+      RenderTimer();
+    }
+  }
 
   void Awake()
   {
@@ -67,10 +76,9 @@ public class TournamentSettings : MonoBehaviour
 
   public void AddSecond()
   {
-    if (timer < TimeSpan.FromSeconds(99))
+    if (Timer < TimeSpan.FromSeconds(99))
     {
-      timer += TimeSpan.FromSeconds(1);
-      RenderTimer();
+      Timer += TimeSpan.FromSeconds(1);
     }
     else
     {
@@ -80,10 +88,9 @@ public class TournamentSettings : MonoBehaviour
 
   public void SubtractSecond()
   {
-    if (timer > TimeSpan.FromSeconds(1))
+    if (Timer > TimeSpan.FromSeconds(1))
     {
-      timer -= TimeSpan.FromSeconds(1);
-      RenderTimer();
+      Timer -= TimeSpan.FromSeconds(1);
     }
     else
     {
@@ -93,8 +100,8 @@ public class TournamentSettings : MonoBehaviour
 
   void RenderTimer()
   {
-    int seconds = (int)timer.TotalSeconds;
-    int centiseconds = timer.Milliseconds / 10;
+    int seconds = (int)Timer.TotalSeconds;
+    int centiseconds = Timer.Milliseconds / 10;
 
     timerText.text = $"{seconds:00}:{centiseconds:00}";
   }
@@ -124,7 +131,7 @@ public class TournamentSettings : MonoBehaviour
 
   public void StartGame()
   {
-    if (players.Count > 1 && timer <= TimeSpan.Zero)
+    if (players.Count > 1 && Timer > TimeSpan.Zero)
     {
       TournamentData data = GetTournamentData();
       tournamentPanel.StartTournament(data);
@@ -139,13 +146,13 @@ public class TournamentSettings : MonoBehaviour
 
   public TournamentData GetTournamentData()
   {
-    return new(players, timer);
+    return new(players, Timer);
   }
 
   public void ResetSettings()
   {
     players.Clear();
-    timer = TimeSpan.FromSeconds(3);
+    Timer = TimeSpan.FromSeconds(3);
 
     for (int i = playerList.childCount - 1; i >= 0; i--)
     {
