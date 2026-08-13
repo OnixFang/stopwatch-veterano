@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class TournamentSettings : MonoBehaviour
 {
+  [SerializeField] GameObject titleScreenPanel;
+
   [Header("Player Input")]
   [SerializeField] GameObject playerInputPanel;
   [SerializeField] TMP_InputField addPlayerInput;
@@ -109,6 +111,12 @@ public class TournamentSettings : MonoBehaviour
     int centiseconds = Timer.Milliseconds / 10;
 
     timerText.text = $"{seconds:00}:{centiseconds:00}";
+  }
+
+  public void ShowTitleScreenPanel()
+  {
+    gameObject.SetActive(false);
+    titleScreenPanel.SetActive(true);
   }
 
   public void ShowTimeInputPanel()
