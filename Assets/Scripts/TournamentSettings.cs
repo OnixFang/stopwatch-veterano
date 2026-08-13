@@ -38,14 +38,19 @@ public class TournamentSettings : MonoBehaviour
     addPlayerInput.onSubmit.AddListener(text =>
     {
       AddPlayer(text);
-      StartCoroutine(ReactivatePlayerInput());
+      StartCoroutine(ActivatePlayerInput());
     });
 
     // Render initial timer
     RenderTimer();
   }
 
-  IEnumerator ReactivatePlayerInput()
+  void OnEnable()
+  {
+    StartCoroutine(ActivatePlayerInput());
+  }
+
+  IEnumerator ActivatePlayerInput()
   {
     yield return null;
     addPlayerInput.ActivateInputField();
@@ -135,8 +140,8 @@ public class TournamentSettings : MonoBehaviour
     {
       TournamentData data = GetTournamentData();
       tournamentPanel.StartTournament(data);
+      timeInputPanel.gameObject.SetActive(false);
       tournamentPanel.gameObject.SetActive(true);
-      gameObject.SetActive(false);
     }
     else
     {

@@ -2685,7 +2685,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1bdccb196ff484a8cdbc4ddcfd766e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  tournamentSettingsPanel: {fileID: 1652617234}
+  tournamentSettings: {fileID: 1652617234}
+  playerInputPanel: {fileID: 771584925}
   timerManager: {fileID: 427319368}
   playerText: {fileID: 1706561399}
   leaderBoardText: {fileID: 1652499595}
@@ -3031,7 +3032,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1652617234}
         m_TargetAssemblyTypeName: TournamentSettings, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
