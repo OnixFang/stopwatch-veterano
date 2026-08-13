@@ -16,7 +16,7 @@ public class TitleScreen : MonoBehaviour
 
   void OnEnable()
   {
-    StartCoroutine(ReselectFirstMenuObject());
+    EventSystem.current.SetSelectedGameObject(firstMenuObject);
     navigateAction.action.performed += OnNavigate;
   }
 
