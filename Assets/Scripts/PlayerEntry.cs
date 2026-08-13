@@ -22,14 +22,19 @@ public class PlayerEntry : MonoBehaviour
     playerName.text = player.Name;
   }
 
-  public string GetPlayerName()
-  {
-    return player.Name;
-  }
-
   void OnRemoveClicked()
   {
     RemovePlayerRequest?.Invoke(player);
     Destroy(gameObject);
+  }
+
+  public void DeactivateRemoveButton()
+  {
+    buttonRemove.gameObject.SetActive(false);
+  }
+
+  public void ActivateRemoveButton()
+  {
+    buttonRemove.gameObject.SetActive(true);
   }
 }

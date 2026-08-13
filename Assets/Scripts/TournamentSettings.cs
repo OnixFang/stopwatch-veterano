@@ -101,11 +101,12 @@ public class TournamentSettings : MonoBehaviour
 
   public void ShowTimeInputPanel()
   {
-    // First screen, needs confirmation on player count
+    // Going from the first screen to next screen, needs confirmation on player count
     if (players.Count > 1)
     {
       playerInputPanel.SetActive(false);
       timeInputPanel.SetActive(true);
+      DeactivateRemoveButtons();
     }
     else
     {
@@ -115,9 +116,10 @@ public class TournamentSettings : MonoBehaviour
 
   public void ShowPlayerEntryPanel()
   {
-    // Second screen to go back, no validation needed
+    // Going back from second screen to first screen, no validation needed
     timeInputPanel.SetActive(false);
     playerInputPanel.SetActive(true);
+    ActivateRemoveButtons();
   }
 
   public void StartGame()
@@ -148,6 +150,22 @@ public class TournamentSettings : MonoBehaviour
     for (int i = playerList.childCount - 1; i >= 0; i--)
     {
       Destroy(playerList.GetChild(i).gameObject);
+    }
+  }
+
+  void DeactivateRemoveButtons()
+  {
+    for (int i = playerList.childCount - 1; i >= 0; i--)
+    {
+      playerList.GetChild(i).GetComponent<PlayerEntry>().DeactivateRemoveButton();
+    }
+  }
+
+  void ActivateRemoveButtons()
+  {
+    for (int i = playerList.childCount - 1; i >= 0; i--)
+    {
+      playerList.GetChild(i).GetComponent<PlayerEntry>().ActivateRemoveButton();
     }
   }
 }
