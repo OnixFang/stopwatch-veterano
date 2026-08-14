@@ -63,9 +63,9 @@ public class TournamentSettings : MonoBehaviour
   // Player Input Panel
   void AddPlayer(string name)
   {
-    if (string.IsNullOrWhiteSpace(name))
+    if (string.IsNullOrWhiteSpace(name) || players.Count >= 15)
     {
-      Debug.Log("Player input empty, cannot create player.");
+      Debug.Log("Player input empty, or max players reached.");
       return;
     }
 
