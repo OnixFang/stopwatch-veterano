@@ -170,6 +170,7 @@ public class TournamentSettings : MonoBehaviour
       timeInputPanel.SetActive(false);
       tournamentPanel.gameObject.SetActive(true);
       AudioManager.Instance.PlaySFX(SoundEffect.MenuAccept);
+      AudioManager.Instance.LowerMusic();
     }
     else
     {

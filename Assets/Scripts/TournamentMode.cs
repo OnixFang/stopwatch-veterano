@@ -102,6 +102,7 @@ public class TournamentMode : MonoBehaviour
     startStopButton.interactable = false;
     backToSettingsButton.gameObject.SetActive(true);
     Debug.Log("Tournament Finished!");
+    AudioManager.Instance.RiseMusic();
   }
 
   public void BackToSettings()

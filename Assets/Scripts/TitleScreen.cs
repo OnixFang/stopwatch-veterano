@@ -8,6 +8,7 @@ public class TitleScreen : MonoBehaviour
   void Start()
   {
     Canvas.ForceUpdateCanvases();
+    AudioManager.Instance.PlayMusic(Music.MainTheme);
   }
 
   public void PlayGame()
