@@ -4,10 +4,12 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
 {
-  [SerializeField] List<SoundEffectData> soundEffects;
-  AudioSource audioSource;
-
   public static AudioManager Instance { get; private set; }
+
+  [SerializeField] List<SoundEffectData> soundEffects;
+  [SerializeField] List<MusicData> musics;
+  [SerializeField] AudioSource sfxSource;
+  [SerializeField] AudioSource musicSource;
 
   void Awake()
   {
@@ -19,8 +21,6 @@ public class AudioManager : MonoBehaviour
 
     Instance = this;
     DontDestroyOnLoad(gameObject);
-
-    audioSource = GetComponent<AudioSource>();
   }
 
   public void PlaySFX(SoundEffect sound)
@@ -29,7 +29,30 @@ public class AudioManager : MonoBehaviour
 
     if (soundData != null)
     {
-      audioSource.PlayOneShot(soundData.clip);
+      sfxSource.PlayOneShot(soundData.clip);
     }
+  }
+
+  public void PlayMusic(Music music)
+  {
+    MusicData musicData = musics.Find(x => x.type == music);
+
+    if (musicData != null)
+    {
+      musicSource.loop = true;
+      musicSource.volume = 0.3f;
+      musicSource.clip = musicData.clip;
+      musicSource.Play();
+    }
+  }
+
+  public void LowerMusic()
+  {
+    musicSource.volume = 0.15f;
+  }
+
+  public void RiseMusic()
+  {
+    musicSource.volume = 0.3f;
   }
 }
