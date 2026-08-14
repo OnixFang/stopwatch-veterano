@@ -1348,11 +1348,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2060396228}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 54.599976, y: 49.899994}
-  m_Pivot: {x: 0, y: 1}
+  m_SizeDelta: {x: 21, y: 19}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &345717940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3277,6 +3277,7 @@ MonoBehaviour:
   nextPlayerButton: {fileID: 1229684043}
   objectiveText: {fileID: 1160537939}
   tipPanel: {fileID: 1223065795}
+  playerList: {fileID: 2060396231}
 --- !u!1 &940437401
 GameObject:
   m_ObjectHideFlags: 0
@@ -6219,7 +6220,6 @@ MonoBehaviour:
   titleScreenPanel: {fileID: 2099343266}
   playerInputPanel: {fileID: 771584925}
   addPlayerInput: {fileID: 1890399093}
-  playerEntryPrefab: {fileID: 7747765975533554681, guid: 4fb3a5a05cf18d8429f0ebbbf183e8e1, type: 3}
   playerList: {fileID: 2060396231}
   timeInputPanel: {fileID: 298897234}
   timerText: {fileID: 1734621919}
@@ -7675,8 +7675,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85e59150897e4a64281a371e23d178e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  playerList: {fileID: 0}
-  playerEntryPrefab: {fileID: 0}
+  playerList: {fileID: 2055978646}
+  playerEntryPrefab: {fileID: 7747765975533554681, guid: 4fb3a5a05cf18d8429f0ebbbf183e8e1, type: 3}
+  arrowIndicator: {fileID: 345717939}
+  arrowOffset: {x: 20, y: 0}
 --- !u!1 &2093721757
 GameObject:
   m_ObjectHideFlags: 0

@@ -39,4 +39,9 @@ public class PlayerEntry : MonoBehaviour
   {
     buttonRemove.gameObject.SetActive(true);
   }
+
+  public bool IsPlayer(Player player)
+  {
+    return player == _player;
+  }
 }

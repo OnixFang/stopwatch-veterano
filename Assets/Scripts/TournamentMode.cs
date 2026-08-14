@@ -16,6 +16,7 @@ public class TournamentMode : MonoBehaviour
   [SerializeField] Button nextPlayerButton;
   [SerializeField] TMP_Text objectiveText;
   [SerializeField] GameObject tipPanel;
+  [SerializeField] PlayerList playerList;
 
   TournamentData tournamentData;
   Player currentPlayer;
@@ -63,8 +64,7 @@ public class TournamentMode : MonoBehaviour
   void ChangePlayer()
   {
     currentPlayer = tournamentData.Players[currentPlayerIndex];
-    // playerText.text = currentPlayer.Name;
-
+    playerList.MarkPlayer(currentPlayer);
     timerManager.ResetTimer();
   }
 
@@ -106,6 +106,7 @@ public class TournamentMode : MonoBehaviour
   public void BackToSettings()
   {
     tournamentSettings.ResetSettings();
+    playerList.RemoveMarker();
     backToSettingsButton.gameObject.SetActive(false);
     gameObject.SetActive(false);
     playerInputPanel.SetActive(true);
