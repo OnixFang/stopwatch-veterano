@@ -10,9 +10,15 @@ Players compete to stop a stopwatch as close as possible to a target time. The p
 
 ## Gameplay
 
+### Title Screen
+
+![Title Screen](docs/images/title-screen.jpg)
+
+Main screen of the game. Checkout credits for more info!
+
 ### Tournament Setup
 
-![Tournament Settings](docs/images/tournament-settings.png)
+![Tournament Settings](docs/images/tournament-settings.jpg)
 
 1. Add **2 or more players**.
 2. Enter the target time (in seconds).
@@ -22,7 +28,7 @@ Players compete to stop a stopwatch as close as possible to a target time. The p
 
 ### Tournament Mode
 
-![Tournament Mode](docs/images/tournament-mode.png)
+![Tournament Mode](docs/images/tournament-mode.jpg)
 
 Each player takes turns attempting to stop the stopwatch as close as possible to the target time.
 
