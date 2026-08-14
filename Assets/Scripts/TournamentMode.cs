@@ -29,6 +29,7 @@ public class TournamentMode : MonoBehaviour
     tipPanel.SetActive(true);
     startStopButton.Select();
     tournamentData = data;
+    objectiveText.fontSize = 28f;
     objectiveText.text = $"Objetivo\n{GetObjectiveText(data.TargetTime)}";
     ChangePlayer();
     RenderRankings();
@@ -101,7 +102,10 @@ public class TournamentMode : MonoBehaviour
   {
     startStopButton.interactable = false;
     backToSettingsButton.gameObject.SetActive(true);
+    objectiveText.text = "Juego Terminado";
+    objectiveText.fontSize = 24f;
     Debug.Log("Tournament Finished!");
+    AudioManager.Instance.RiseMusic();
   }
 
   public void BackToSettings()
