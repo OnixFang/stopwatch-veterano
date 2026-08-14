@@ -69,6 +69,15 @@ public class TournamentSettings : MonoBehaviour
       return;
     }
 
+    foreach (var savedPlayer in players)
+    {
+      if (savedPlayer.Name.ToLower() == name.ToLower())
+      {
+        Debug.Log("Player input empty, or max players reached.");
+        return;
+      }
+    }
+
     Player player = new(name);
     players.Add(player);
 
