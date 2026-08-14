@@ -3,6 +3,7 @@ using UnityEngine;
 public class TitleScreen : MonoBehaviour
 {
   [SerializeField] GameObject tournamentSettingsPanel;
+  [SerializeField] GameObject creditsPanel;
 
   void Start()
   {
@@ -13,6 +14,13 @@ public class TitleScreen : MonoBehaviour
   {
     gameObject.SetActive(false);
     tournamentSettingsPanel.SetActive(true);
+    AudioManager.Instance.PlaySFX(SoundEffect.MenuAccept);
+  }
+
+  public void OpenCredits()
+  {
+    gameObject.SetActive(false);
+    creditsPanel.SetActive(true);
     AudioManager.Instance.PlaySFX(SoundEffect.MenuAccept);
   }
 
