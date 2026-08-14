@@ -88,6 +88,7 @@ public class MenuIndicator : MonoBehaviour
 
   void OnDisable()
   {
+    initialized = false;
     navigateAction.action.performed -= OnNavigate;
   }
 }
