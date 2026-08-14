@@ -11,6 +11,7 @@ public class MenuIndicator : MonoBehaviour
   [SerializeField] GameObject firstMenuObject;
   [SerializeField] InputActionReference navigateAction;
 
+  bool initialized = false;
   GameObject currentSelected;
 
   void Update()
@@ -45,8 +46,17 @@ public class MenuIndicator : MonoBehaviour
     buttonRect.GetWorldCorners(corners);
     Vector3 leftCenter = (corners[0] + corners[1]) / 2f;
 
+    // Ensure arrow indicator is visible
+    if (!arrowIndicator.activeSelf)
+      arrowIndicator.SetActive(true);
+
     arrowIndicator.GetComponent<RectTransform>().position = leftCenter + (Vector3)offset;
-  }
+
+    // Play audio only after this has ben ran once
+    if (initialized)
+      AudioManager.Instance.PlaySFX(SoundEffect.MenuSelect);
+
+    initialized = true;
   }
 
   void OnNavigate(InputAction.CallbackContext context)
