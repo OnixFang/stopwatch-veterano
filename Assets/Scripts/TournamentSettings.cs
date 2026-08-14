@@ -131,9 +131,9 @@ public class TournamentSettings : MonoBehaviour
   // Navigation
   public void ShowTitleScreenPanel()
   {
-    AudioManager.Instance.PlaySFX(SoundEffect.TimerClick);
     gameObject.SetActive(false);
     titleScreenPanel.SetActive(true);
+    AudioManager.Instance.PlaySFX(SoundEffect.TimerClick);
   }
 
   public void ShowTimeInputPanel()
