@@ -45,6 +45,7 @@ public class TimerManager : MonoBehaviour
     {
       StopTimer();
     }
+    AudioManager.Instance.PlaySFX(SoundEffect.TimerClick);
   }
 
   public void StartTimer()

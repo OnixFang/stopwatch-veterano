@@ -1,7 +1,4 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 
 public class TitleScreen : MonoBehaviour
 {
@@ -16,5 +13,6 @@ public class TitleScreen : MonoBehaviour
   {
     gameObject.SetActive(false);
     tournamentSettingsPanel.SetActive(true);
+    AudioManager.Instance.PlaySFX(SoundEffect.MenuAccept);
   }
 }

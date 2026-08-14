@@ -1,7 +1,7 @@
 public enum SoundEffect
 {
   MenuSelect,
-  MenuClick,
+  MenuAccept,
   TimerClick,
   StopwatchClick
 }

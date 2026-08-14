@@ -59,6 +59,7 @@ public class TournamentMode : MonoBehaviour
     startStopButton.Select();
     nextPlayerButton.gameObject.SetActive(false);
     tipPanel.SetActive(true);
+    AudioManager.Instance.PlaySFX(SoundEffect.MenuAccept);
   }
 
   void ChangePlayer()
@@ -110,5 +111,6 @@ public class TournamentMode : MonoBehaviour
     backToSettingsButton.gameObject.SetActive(false);
     gameObject.SetActive(false);
     playerInputPanel.SetActive(true);
+    AudioManager.Instance.PlaySFX(SoundEffect.MenuAccept);
   }
 }
