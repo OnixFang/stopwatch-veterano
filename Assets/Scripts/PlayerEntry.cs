@@ -8,8 +8,11 @@ public class PlayerEntry : MonoBehaviour
   [SerializeField] TMP_Text playerName;
   [SerializeField] Button buttonRemove;
 
-  Player player;
-  public event Action<Player> RemovePlayerRequest;
+  Player _player;
+
+  public Player Player => _player;
+
+  public event Action<PlayerEntry> RemovePlayerRequest;
 
   void Awake()
   {
@@ -18,14 +21,13 @@ public class PlayerEntry : MonoBehaviour
 
   public void SetPlayer(Player newPlayer)
   {
-    player = newPlayer;
-    playerName.text = player.Name;
+    _player = newPlayer;
+    playerName.text = _player.Name;
   }
 
   void OnRemoveClicked()
   {
-    RemovePlayerRequest?.Invoke(player);
-    Destroy(gameObject);
+    RemovePlayerRequest?.Invoke(this);
   }
 
   public void DeactivateRemoveButton()
@@ -36,5 +38,10 @@ public class PlayerEntry : MonoBehaviour
   public void ActivateRemoveButton()
   {
     buttonRemove.gameObject.SetActive(true);
+  }
+
+  public bool IsPlayer(Player player)
+  {
+    return player == _player;
   }
 }

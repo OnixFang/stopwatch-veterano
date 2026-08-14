@@ -11,8 +11,7 @@ public class TournamentSettings : MonoBehaviour
   [Header("Player Input")]
   [SerializeField] GameObject playerInputPanel;
   [SerializeField] TMP_InputField addPlayerInput;
-  [SerializeField] PlayerEntry playerEntryPrefab;
-  [SerializeField] Transform playerList;
+  [SerializeField] PlayerList playerList;
 
   [Header("Time Input")]
   [SerializeField] GameObject timeInputPanel;
@@ -22,7 +21,7 @@ public class TournamentSettings : MonoBehaviour
   [SerializeField] TournamentMode tournamentPanel;
 
   // Tournament data
-  List<Player> players = new();
+  readonly List<Player> players = new();
   TimeSpan _timer = TimeSpan.FromSeconds(3);
   TimeSpan Timer
   {
@@ -36,12 +35,15 @@ public class TournamentSettings : MonoBehaviour
 
   void Awake()
   {
-    // Add addPlayer event to playerInputq
+    // Add addPlayer event to playerInput
     addPlayerInput.onSubmit.AddListener(text =>
     {
       AddPlayer(text);
       StartCoroutine(ActivatePlayerInput());
     });
+
+    // Subscribe to player removal from player list
+    playerList.RemovedPlayer += RemovePlayer;
 
     // Render initial timer
     RenderTimer();
@@ -58,7 +60,8 @@ public class TournamentSettings : MonoBehaviour
     addPlayerInput.ActivateInputField();
   }
 
-  public void AddPlayer(string name)
+  // Player Input Panel
+  void AddPlayer(string name)
   {
     if (string.IsNullOrWhiteSpace(name))
     {
@@ -71,16 +74,15 @@ public class TournamentSettings : MonoBehaviour
 
     addPlayerInput.text = "";
 
-    PlayerEntry playerEntry = Instantiate(playerEntryPrefab, playerList);
-    playerEntry.SetPlayer(player);
-    playerEntry.RemovePlayerRequest += RemovePlayer;
+    playerList.AddPlayer(player);
   }
 
-  public void RemovePlayer(Player player)
+  void RemovePlayer(Player player)
   {
     players.Remove(player);
   }
 
+  // Timer Input Panel
   public void AddSecond()
   {
     if (Timer < TimeSpan.FromSeconds(99))
@@ -113,6 +115,7 @@ public class TournamentSettings : MonoBehaviour
     timerText.text = $"{seconds:00}:{centiseconds:00}";
   }
 
+  // Navigation
   public void ShowTitleScreenPanel()
   {
     gameObject.SetActive(false);
@@ -126,7 +129,7 @@ public class TournamentSettings : MonoBehaviour
     {
       playerInputPanel.SetActive(false);
       timeInputPanel.SetActive(true);
-      DeactivateRemoveButtons();
+      playerList.DeactivateRemoveButtons();
     }
     else
     {
@@ -139,7 +142,7 @@ public class TournamentSettings : MonoBehaviour
     // Going back from second screen to first screen, no validation needed
     timeInputPanel.SetActive(false);
     playerInputPanel.SetActive(true);
-    ActivateRemoveButtons();
+    playerList.ActivateRemoveButtons();
   }
 
   public void StartGame()
@@ -148,7 +151,7 @@ public class TournamentSettings : MonoBehaviour
     {
       TournamentData data = GetTournamentData();
       tournamentPanel.StartTournament(data);
-      timeInputPanel.gameObject.SetActive(false);
+      timeInputPanel.SetActive(false);
       tournamentPanel.gameObject.SetActive(true);
     }
     else
@@ -157,6 +160,7 @@ public class TournamentSettings : MonoBehaviour
     }
   }
 
+  // Gameplay
   public TournamentData GetTournamentData()
   {
     return new(players, Timer);
@@ -167,25 +171,6 @@ public class TournamentSettings : MonoBehaviour
     players.Clear();
     Timer = TimeSpan.FromSeconds(3);
 
-    for (int i = playerList.childCount - 1; i >= 0; i--)
-    {
-      Destroy(playerList.GetChild(i).gameObject);
-    }
-  }
-
-  void DeactivateRemoveButtons()
-  {
-    for (int i = playerList.childCount - 1; i >= 0; i--)
-    {
-      playerList.GetChild(i).GetComponent<PlayerEntry>().DeactivateRemoveButton();
-    }
-  }
-
-  void ActivateRemoveButtons()
-  {
-    for (int i = playerList.childCount - 1; i >= 0; i--)
-    {
-      playerList.GetChild(i).GetComponent<PlayerEntry>().ActivateRemoveButton();
-    }
+    playerList.ResetList();
   }
 }
