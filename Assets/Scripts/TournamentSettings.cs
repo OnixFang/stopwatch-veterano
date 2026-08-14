@@ -84,11 +84,13 @@ public class TournamentSettings : MonoBehaviour
     addPlayerInput.text = "";
 
     playerList.AddPlayer(player);
+    AudioManager.Instance.PlaySFX(SoundEffect.MenuAccept);
   }
 
   void RemovePlayer(Player player)
   {
     players.Remove(player);
+    AudioManager.Instance.PlaySFX(SoundEffect.TimerClick);
   }
 
   // Timer Input Panel
@@ -97,6 +99,7 @@ public class TournamentSettings : MonoBehaviour
     if (Timer < TimeSpan.FromSeconds(99))
     {
       Timer += TimeSpan.FromSeconds(1);
+      AudioManager.Instance.PlaySFX(SoundEffect.TimerClick);
     }
     else
     {
@@ -109,6 +112,7 @@ public class TournamentSettings : MonoBehaviour
     if (Timer > TimeSpan.FromSeconds(1))
     {
       Timer -= TimeSpan.FromSeconds(1);
+      AudioManager.Instance.PlaySFX(SoundEffect.TimerClick);
     }
     else
     {
@@ -129,6 +133,7 @@ public class TournamentSettings : MonoBehaviour
   {
     gameObject.SetActive(false);
     titleScreenPanel.SetActive(true);
+    AudioManager.Instance.PlaySFX(SoundEffect.TimerClick);
   }
 
   public void ShowTimeInputPanel()
@@ -139,6 +144,7 @@ public class TournamentSettings : MonoBehaviour
       playerInputPanel.SetActive(false);
       timeInputPanel.SetActive(true);
       playerList.DeactivateRemoveButtons();
+      AudioManager.Instance.PlaySFX(SoundEffect.MenuAccept);
     }
     else
     {
@@ -152,6 +158,7 @@ public class TournamentSettings : MonoBehaviour
     timeInputPanel.SetActive(false);
     playerInputPanel.SetActive(true);
     playerList.ActivateRemoveButtons();
+    AudioManager.Instance.PlaySFX(SoundEffect.TimerClick);
   }
 
   public void StartGame()
@@ -162,6 +169,7 @@ public class TournamentSettings : MonoBehaviour
       tournamentPanel.StartTournament(data);
       timeInputPanel.SetActive(false);
       tournamentPanel.gameObject.SetActive(true);
+      AudioManager.Instance.PlaySFX(SoundEffect.MenuAccept);
     }
     else
     {
