@@ -4,7 +4,7 @@ A stopwatch challenge game built with Unity for a youth ministry (Pastoral Juven
 
 Players compete to stop a stopwatch as close as possible to a target time. The player with the smallest difference from the target time wins.
 
-> **Latest Release:** v0.2.0
+> **Latest Release:** v0.2.1
 
 ---
 

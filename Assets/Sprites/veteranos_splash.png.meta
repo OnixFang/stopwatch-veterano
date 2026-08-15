@@ -1,0 +1,858 @@
+fileFormatVersion: 2
+guid: b40364dbe5cfba34098b534accb10825
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1882862295547614074
+    second: veteranos_splash_0
+  - first:
+      213: -8237293213047840154
+    second: veteranos_splash_1
+  - first:
+      213: 3917270312188806900
+    second: veteranos_splash_2
+  - first:
+      213: -8253419012682309940
+    second: veteranos_splash_3
+  - first:
+      213: -1155042061365315456
+    second: veteranos_splash_4
+  - first:
+      213: -8744877369418529545
+    second: veteranos_splash_5
+  - first:
+      213: -7355292590034195669
+    second: veteranos_splash_6
+  - first:
+      213: 1199331126088233156
+    second: veteranos_splash_7
+  - first:
+      213: -9130468175405931942
+    second: veteranos_splash_8
+  - first:
+      213: -109272080299297273
+    second: veteranos_splash_9
+  - first:
+      213: 606516478523736990
+    second: veteranos_splash_10
+  - first:
+      213: 7439051744795262837
+    second: veteranos_splash_11
+  - first:
+      213: 1622742537692127069
+    second: veteranos_splash_12
+  - first:
+      213: -5051953639756242668
+    second: veteranos_splash_13
+  - first:
+      213: -3444160096726520642
+    second: veteranos_splash_14
+  - first:
+      213: -675616018463446578
+    second: veteranos_splash_15
+  - first:
+      213: 1728540654538548513
+    second: veteranos_splash_16
+  - first:
+      213: 3641675480328868476
+    second: veteranos_splash_17
+  - first:
+      213: -8606006953548124637
+    second: veteranos_splash_18
+  - first:
+      213: 6032857239468779722
+    second: veteranos_splash_19
+  - first:
+      213: -2409113312812211987
+    second: veteranos_splash_20
+  - first:
+      213: 1209587154249649194
+    second: veteranos_splash_21
+  - first:
+      213: 6052621926625585564
+    second: veteranos_splash_22
+  - first:
+      213: -4599597521075578486
+    second: veteranos_splash_23
+  - first:
+      213: -7171333098751503375
+    second: veteranos_splash_24
+  - first:
+      213: -3376561774256849968
+    second: veteranos_splash_25
+  - first:
+      213: -6600321141474572096
+    second: veteranos_splash_26
+  - first:
+      213: -7458586626948161667
+    second: veteranos_splash_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: veteranos_splash_0
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 309
+        width: 564
+        height: 412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a73971f2845412a10800000000000000
+      internalID: 1882862295547614074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 122
+        width: 109
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6622c8d37714fad80800000000000000
+      internalID: -8237293213047840154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 122
+        width: 89
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f682372890fc5630800000000000000
+      internalID: 3917270312188806900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_3
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 122
+        width: 110
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cce9d9ee227f57d80800000000000000
+      internalID: -8253419012682309940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_4
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 122
+        width: 89
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0887fa76d5778ffe0800000000000000
+      internalID: -1155042061365315456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_5
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 122
+        width: 89
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f4c4776d54f3a680800000000000000
+      internalID: -8744877369418529545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_6
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 122
+        width: 89
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2be2fffb50cce990800000000000000
+      internalID: -7355292590034195669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_7
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 122
+        width: 89
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c0fe8a0e41e4a010800000000000000
+      internalID: 1199331126088233156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_8
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 122
+        width: 89
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a52abebd19f0a4180800000000000000
+      internalID: -9130468175405931942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_9
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 122
+        width: 89
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70674e53f99cb7ef0800000000000000
+      internalID: -109272080299297273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_10
+      rect:
+        serializedVersion: 2
+        x: 1057
+        y: 122
+        width: 89
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9304d41687ca6800800000000000000
+      internalID: 606516478523736990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_11
+      rect:
+        serializedVersion: 2
+        x: 1165
+        y: 122
+        width: 89
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57f754ae522dc3760800000000000000
+      internalID: 7439051744795262837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_12
+      rect:
+        serializedVersion: 2
+        x: 1273
+        y: 122
+        width: 89
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5f1e098db3258610800000000000000
+      internalID: 1622742537692127069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_13
+      rect:
+        serializedVersion: 2
+        x: 1381
+        y: 122
+        width: 88
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41166985eead3e9b0800000000000000
+      internalID: -5051953639756242668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_14
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 0
+        width: 60
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebc6a05d3a2e330d0800000000000000
+      internalID: -3444160096726520642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_15
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 0
+        width: 60
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec92cee8fcabf96f0800000000000000
+      internalID: -675616018463446578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_16
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 0
+        width: 60
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 125679d21920df710800000000000000
+      internalID: 1728540654538548513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_17
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 0
+        width: 74
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7290401e84d98230800000000000000
+      internalID: 3641675480328868476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_18
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 0
+        width: 60
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32ee837b542519880800000000000000
+      internalID: -8606006953548124637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_19
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 0
+        width: 17
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac82e2322b309b350800000000000000
+      internalID: 6032857239468779722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_20
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 0
+        width: 74
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de0e92eb43c119ed0800000000000000
+      internalID: -2409113312812211987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_21
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 0
+        width: 60
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2c0dedab1159c010800000000000000
+      internalID: 1209587154249649194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_22
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 0
+        width: 60
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c992248f29b3ff350800000000000000
+      internalID: 6052621926625585564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_23
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 0
+        width: 60
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a89d58e9c62fa20c0800000000000000
+      internalID: -4599597521075578486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_24
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 0
+        width: 60
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f35ae2ca8e4a7c90800000000000000
+      internalID: -7171333098751503375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_25
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 0
+        width: 60
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dbf143c4fa0421d0800000000000000
+      internalID: -3376561774256849968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_26
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 0
+        width: 17
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c848ee44e2f664a0800000000000000
+      internalID: -6600321141474572096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: veteranos_splash_27
+      rect:
+        serializedVersion: 2
+        x: 1165
+        y: 0
+        width: 60
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7f9646eaf6cd7890800000000000000
+      internalID: -7458586626948161667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      veteranos_splash_0: 1882862295547614074
+      veteranos_splash_1: -8237293213047840154
+      veteranos_splash_10: 606516478523736990
+      veteranos_splash_11: 7439051744795262837
+      veteranos_splash_12: 1622742537692127069
+      veteranos_splash_13: -5051953639756242668
+      veteranos_splash_14: -3444160096726520642
+      veteranos_splash_15: -675616018463446578
+      veteranos_splash_16: 1728540654538548513
+      veteranos_splash_17: 3641675480328868476
+      veteranos_splash_18: -8606006953548124637
+      veteranos_splash_19: 6032857239468779722
+      veteranos_splash_2: 3917270312188806900
+      veteranos_splash_20: -2409113312812211987
+      veteranos_splash_21: 1209587154249649194
+      veteranos_splash_22: 6052621926625585564
+      veteranos_splash_23: -4599597521075578486
+      veteranos_splash_24: -7171333098751503375
+      veteranos_splash_25: -3376561774256849968
+      veteranos_splash_26: -6600321141474572096
+      veteranos_splash_27: -7458586626948161667
+      veteranos_splash_3: -8253419012682309940
+      veteranos_splash_4: -1155042061365315456
+      veteranos_splash_5: -8744877369418529545
+      veteranos_splash_6: -7355292590034195669
+      veteranos_splash_7: 1199331126088233156
+      veteranos_splash_8: -9130468175405931942
+      veteranos_splash_9: -109272080299297273
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

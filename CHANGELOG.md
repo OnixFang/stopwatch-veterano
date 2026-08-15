@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [0.2.1] - 2026-08-15
+
+### Added
+
+- Game icon
+- Splash Screen
+
+### Changed
+
+- Added game icon for windows version
+- Added splash screen for game intro.
+
+### Fixed
+
+- N\A
+
+---
+
 ## [0.2.0] - 2026-08-14
 
 ### Added
