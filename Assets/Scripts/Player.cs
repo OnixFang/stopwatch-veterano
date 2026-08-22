@@ -8,11 +8,6 @@ public class Player
 
   public Player(string name)
   {
-    if (string.IsNullOrWhiteSpace(name))
-    {
-      throw new ArgumentException("Player name cannot be empty.", nameof(name));
-    }
-
     Name = name;
     Time = TimeSpan.Zero;
     HasPlayed = false;
