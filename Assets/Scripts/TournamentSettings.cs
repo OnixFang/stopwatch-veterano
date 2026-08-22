@@ -63,7 +63,8 @@ public class TournamentSettings : MonoBehaviour
   // Player Input Panel
   void AddPlayer(string name)
   {
-    if (string.IsNullOrWhiteSpace(name) || players.Count >= 15)
+    string playerName = name.Trim();
+    if (string.IsNullOrWhiteSpace(playerName) || players.Count >= 15)
     {
       Debug.Log("Player input empty, or max players reached.");
       return;
@@ -71,14 +72,14 @@ public class TournamentSettings : MonoBehaviour
 
     foreach (var savedPlayer in players)
     {
-      if (savedPlayer.Name.ToLower() == name.ToLower())
+      if (savedPlayer.Name.ToLower() == playerName.ToLower())
       {
         Debug.Log("Player input empty, or max players reached.");
         return;
       }
     }
 
-    Player player = new(name);
+    Player player = new(playerName);
     players.Add(player);
 
     addPlayerInput.text = "";
