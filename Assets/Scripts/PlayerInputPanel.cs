@@ -17,7 +17,7 @@ public class PlayerInputPanel : MonoBehaviour
     // Add addPlayer event to playerInput
     addPlayerInput.onSubmit.AddListener(text =>
     {
-      AddPlayer(text);
+      CreatePlayer(text);
       StartCoroutine(ActivatePlayerInput());
     });
   }
@@ -39,7 +39,7 @@ public class PlayerInputPanel : MonoBehaviour
     addPlayerInput.ActivateInputField();
   }
 
-  void AddPlayer(string name)
+  void CreatePlayer(string name)
   {
     string playerName = name.Trim();
 

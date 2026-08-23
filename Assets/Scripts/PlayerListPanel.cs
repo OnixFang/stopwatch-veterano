@@ -1,26 +1,46 @@
 using System;
 using UnityEngine;
 
-public class PlayerList : MonoBehaviour
+public class PlayerListPanel : MonoBehaviour
 {
+  [SerializeField] TournamentController tournamentController;
   [SerializeField] Transform playerList;
   [SerializeField] PlayerEntry playerEntryPrefab;
   [SerializeField] RectTransform arrowIndicator;
   [SerializeField] Vector2 arrowOffset = new(20f, 0);
 
-  public event Action<Player> RemovedPlayer;
+  public event Action<Player> RemovePlayerRequested;
 
-  public void AddPlayer(Player player)
+  void OnEnable()
+  {
+    tournamentController.PlayerAdded += OnPlayerAdded;
+    tournamentController.PlayerRemoved += OnPlayerRemoved;
+  }
+
+  void OnPlayerAdded(Player player)
   {
     PlayerEntry playerEntry = Instantiate(playerEntryPrefab, playerList);
     playerEntry.SetPlayer(player);
-    playerEntry.RemovePlayerRequest += RemovePlayer;
+    playerEntry.RemovePlayerRequested += OnRemovePlayerRequested;
   }
 
-  void RemovePlayer(PlayerEntry entry)
+  void OnRemovePlayerRequested(PlayerEntry entry)
   {
     Destroy(entry.gameObject);
-    RemovedPlayer?.Invoke(entry.Player);
+    RemovePlayerRequested?.Invoke(entry.Player);
+  }
+
+  void OnPlayerRemoved(Player player)
+  {
+    for (int i = 0; i < playerList.childCount; i++)
+    {
+      PlayerEntry entry = playerList.GetChild(i).GetComponent<PlayerEntry>();
+
+      if (entry.IsPlayer(player))
+      {
+        Destroy(entry.gameObject);
+      }
+    }
   }
 
   public void MarkPlayer(Player player)

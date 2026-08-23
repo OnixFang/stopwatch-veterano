@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class TitleScreen : MonoBehaviour
+public class TitleScreenPanel : MonoBehaviour
 {
-  [SerializeField] GameObject tournamentSettingsPanel;
+  [SerializeField] GameObject tournamentMode;
   [SerializeField] GameObject creditsPanel;
 
   void Start()
@@ -14,7 +14,7 @@ public class TitleScreen : MonoBehaviour
   public void PlayGame()
   {
     gameObject.SetActive(false);
-    tournamentSettingsPanel.SetActive(true);
+    tournamentMode.SetActive(true);
     AudioManager.Instance.PlaySFX(SoundEffect.MenuAccept);
   }
 

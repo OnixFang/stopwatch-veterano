@@ -3500,7 +3500,7 @@ GameObject:
   - component: {fileID: 881838933}
   - component: {fileID: 881838934}
   m_Layer: 5
-  m_Name: Tournament Mode Panels
+  m_Name: Tournament Game Panels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3513,19 +3513,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881838931}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 427319366}
   - {fileID: 1839688604}
-  m_Father: {fileID: 1137802209}
+  m_Father: {fileID: 1036833905}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 65.01611, y: 15.08197}
+  m_SizeDelta: {x: 1280, y: 720}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &881838933
 CanvasRenderer:
@@ -3876,6 +3876,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006937477}
   m_CullTransparentMesh: 1
+--- !u!1 &1036833904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1036833905}
+  m_Layer: 0
+  m_Name: Tournament Mode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1036833905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036833904}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -43.344078, y: -10.054647, z: 0}
+  m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2060396228}
+  - {fileID: 1652617232}
+  - {fileID: 881838932}
+  m_Father: {fileID: 1137802209}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1055516270
 GameObject:
   m_ObjectHideFlags: 0
@@ -4581,9 +4615,7 @@ RectTransform:
   - {fileID: 364530741}
   - {fileID: 2099343267}
   - {fileID: 1793127595}
-  - {fileID: 1652617232}
-  - {fileID: 881838932}
-  - {fileID: 2060396228}
+  - {fileID: 1036833905}
   - {fileID: 98810960}
   - {fileID: 1261974193}
   m_Father: {fileID: 0}
@@ -6938,7 +6970,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1652617232
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6946,19 +6978,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1652617231}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 771584926}
   - {fileID: 298897235}
-  m_Father: {fileID: 1137802209}
+  m_Father: {fileID: 1036833905}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 65.01611, y: 15.08197}
+  m_SizeDelta: {x: 1280, y: 720}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1652617233
 CanvasRenderer:
@@ -8767,7 +8799,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2060396228
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8777,17 +8809,17 @@ RectTransform:
   m_GameObject: {fileID: 2060396227}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 863885690}
   - {fileID: 2055978646}
   - {fileID: 345717939}
-  m_Father: {fileID: 1137802209}
+  m_Father: {fileID: 1036833905}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 40, y: -60}
+  m_AnchoredPosition: {x: -834.9839, y: 465.08197}
   m_SizeDelta: {x: 200, y: 560}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2060396229
@@ -8840,6 +8872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85e59150897e4a64281a371e23d178e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  tournamentController: {fileID: 970129976}
   playerList: {fileID: 2055978646}
   playerEntryPrefab: {fileID: 7747765975533554681, guid: 4fb3a5a05cf18d8429f0ebbbf183e8e1, type: 3}
   arrowIndicator: {fileID: 345717939}
@@ -8942,7 +8975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4708848be6e88b0449ebddc6064cddd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  tournamentSettingsPanel: {fileID: 1652617231}
+  tournamentMode: {fileID: 1036833904}
   creditsPanel: {fileID: 1793127594}
 --- !u!1 &2111683122
 GameObject:

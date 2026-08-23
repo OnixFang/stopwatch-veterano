@@ -9,10 +9,9 @@ public class PlayerEntry : MonoBehaviour
   [SerializeField] Button buttonRemove;
 
   Player _player;
-
   public Player Player => _player;
 
-  public event Action<PlayerEntry> RemovePlayerRequest;
+  public event Action<PlayerEntry> RemovePlayerRequested;
 
   void Awake()
   {
@@ -27,7 +26,8 @@ public class PlayerEntry : MonoBehaviour
 
   void OnRemoveClicked()
   {
-    RemovePlayerRequest?.Invoke(this);
+    RemovePlayerRequested?.Invoke(this);
+    AudioManager.Instance.PlaySFX(SoundEffect.TimerClick);
   }
 
   public void DeactivateRemoveButton()

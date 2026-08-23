@@ -23,6 +23,7 @@ public class TournamentController : MonoBehaviour
   void Awake()
   {
     playerInputPanel.CreatePlayerRequested += AddPlayer;
+    playerListPanel.RemovePlayerRequested += RemovePlayer;
   }
 
   void AddPlayer(string name)
