@@ -27,7 +27,6 @@ public class PlayerEntry : MonoBehaviour
   void OnRemoveClicked()
   {
     RemovePlayerRequested?.Invoke(this);
-    AudioManager.Instance.PlaySFX(SoundEffect.TimerClick);
   }
 
   public void DeactivateRemoveButton()

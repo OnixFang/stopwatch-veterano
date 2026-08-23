@@ -11,6 +11,7 @@ public class PlayerInputPanel : MonoBehaviour
   [SerializeField] PlayerListPanel playerListPanel;
 
   public event Action<string> CreatePlayerRequested;
+  public event Action ConfigureTimeRequested;
 
   void Awake()
   {
@@ -50,11 +51,15 @@ public class PlayerInputPanel : MonoBehaviour
     }
 
     CreatePlayerRequested?.Invoke(playerName);
-    AudioManager.Instance.PlaySFX(SoundEffect.MenuAccept);
   }
 
   void OnPlayerAdded(Player player)
   {
     addPlayerInput.text = "";
+  }
+
+  public void ConfigureTimeClickHandler()
+  {
+    ConfigureTimeRequested?.Invoke();
   }
 }

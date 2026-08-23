@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class TournamentController : MonoBehaviour
 {
-  [SerializeField] GameObject titleScreenPanel;
   [SerializeField] PlayerInputPanel playerInputPanel;
   [SerializeField] GameObject timerInputPanel;
   [SerializeField] PlayerListPanel playerListPanel;
-
-  [SerializeField] TournamentMode tournamentPanel;
 
   // Tournament data
   readonly List<Player> players = new();
@@ -19,10 +16,12 @@ public class TournamentController : MonoBehaviour
   public event Action<Player> PlayerAdded;
   public event Action<Player> PlayerRemoved;
   public event Action<TimeSpan> TimeChanged;
+  public event Action SettingsReset;
 
   void Awake()
   {
     playerInputPanel.CreatePlayerRequested += AddPlayer;
+
     playerListPanel.RemovePlayerRequested += RemovePlayer;
   }
 
@@ -31,6 +30,7 @@ public class TournamentController : MonoBehaviour
     if (players.Count >= 15)
     {
       Debug.Log("Cannot create player: Max players reached.");
+      AudioManager.Instance.PlaySFX(SoundEffect.TimerClick);
       return;
     }
 
@@ -39,6 +39,7 @@ public class TournamentController : MonoBehaviour
       if (savedPlayer.Name.ToLower() == name.ToLower())
       {
         Debug.Log("Cannot create player: Duplicate player name.");
+        AudioManager.Instance.PlaySFX(SoundEffect.TimerClick);
         return;
       }
     }
@@ -46,62 +47,25 @@ public class TournamentController : MonoBehaviour
     Player player = new(name);
     players.Add(player);
     PlayerAdded?.Invoke(player);
+    AudioManager.Instance.PlaySFX(SoundEffect.MenuAccept);
   }
 
   void RemovePlayer(Player player)
   {
     players.Remove(player);
     PlayerRemoved?.Invoke(player);
-  }
-
-  // Navigation
-  public void ShowTitleScreenPanel()
-  {
-    gameObject.SetActive(false);
-    titleScreenPanel.SetActive(true);
     AudioManager.Instance.PlaySFX(SoundEffect.TimerClick);
   }
 
-  public void ShowTimeInputPanel()
+  // Navigation validation
+  public bool CanConfigureTime()
   {
-    // Going from the first screen to next screen, needs confirmation on player count
-    if (players.Count > 1)
-    {
-      playerInputPanel.gameObject.SetActive(false);
-      timerInputPanel.SetActive(true);
-      playerListPanel.DeactivateRemoveButtons();
-      AudioManager.Instance.PlaySFX(SoundEffect.MenuAccept);
-    }
-    else
-    {
-      Debug.Log("Insuficient players to play.");
-    }
+    return players.Count > 1;
   }
 
-  public void ShowPlayerEntryPanel()
+  public bool CanStartGame()
   {
-    // Going back from second screen to first screen, no validation needed
-    timerInputPanel.SetActive(false);
-    playerInputPanel.gameObject.SetActive(true);
-    playerListPanel.ActivateRemoveButtons();
-    AudioManager.Instance.PlaySFX(SoundEffect.TimerClick);
-  }
-
-  public void StartGame()
-  {
-    if (players.Count > 1 && timer > TimeSpan.Zero)
-    {
-      TournamentData data = GetTournamentData();
-      tournamentPanel.StartTournament(data);
-      timerInputPanel.SetActive(false);
-      tournamentPanel.gameObject.SetActive(true);
-      AudioManager.Instance.PlaySFX(SoundEffect.MenuAccept);
-      AudioManager.Instance.LowerMusic();
-    }
-    else
-    {
-      Debug.Log("Insuficient players or invalid timer.");
-    }
+    return players.Count > 1 && timer > TimeSpan.Zero;
   }
 
   // Gameplay
@@ -115,6 +79,6 @@ public class TournamentController : MonoBehaviour
     players.Clear();
     timer = TimeSpan.FromSeconds(3);
 
-    playerListPanel.ResetList();
+    SettingsReset?.Invoke();
   }
 }
