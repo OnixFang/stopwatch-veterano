@@ -1026,6 +1026,7 @@ GameObject:
   - component: {fileID: 298897235}
   - component: {fileID: 298897237}
   - component: {fileID: 298897236}
+  - component: {fileID: 298897238}
   m_Layer: 5
   m_Name: Time Input Panel
   m_TagString: Untagged
@@ -1096,6 +1097,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 298897234}
   m_CullTransparentMesh: 1
+--- !u!114 &298897238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298897234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a776f8f5d5daca848ba7b1708e333c18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimerInputPanel
+  timerText: {fileID: 1734621919}
+  plusButton: {fileID: 1552795231}
+  minusButton: {fileID: 562734580}
 --- !u!1 &320594804
 GameObject:
   m_ObjectHideFlags: 0
@@ -1286,9 +1302,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1306942926}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: -240}
   m_SizeDelta: {x: 240, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &329372915
@@ -2548,7 +2564,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1652617234}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TournamentSettings, Assembly-CSharp
         m_MethodName: SubtractSecond
         m_Mode: 1
@@ -2943,6 +2959,7 @@ GameObject:
   - component: {fileID: 771584926}
   - component: {fileID: 771584928}
   - component: {fileID: 771584927}
+  - component: {fileID: 771584929}
   m_Layer: 5
   m_Name: Player Input Panel
   m_TagString: Untagged
@@ -3010,6 +3027,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 771584925}
   m_CullTransparentMesh: 1
+--- !u!114 &771584929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771584925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 053d891f86ad9734489361e3e9081f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInputPanel
+  tournamentController: {fileID: 970129976}
+  addPlayerInput: {fileID: 1890399093}
+  playerListPanel: {fileID: 2060396231}
 --- !u!1 &810325550
 GameObject:
   m_ObjectHideFlags: 0
@@ -3468,7 +3500,7 @@ GameObject:
   - component: {fileID: 881838933}
   - component: {fileID: 881838934}
   m_Layer: 5
-  m_Name: Tournament Mode
+  m_Name: Tournament Mode Panels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3515,7 +3547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1bdccb196ff484a8cdbc4ddcfd766e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  tournamentSettings: {fileID: 1652617234}
+  tournamentSettings: {fileID: 0}
   playerInputPanel: {fileID: 771584925}
   rankingPanel: {fileID: 1839688607}
   timerManager: {fileID: 427319368}
@@ -3608,7 +3640,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1652617234}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TournamentSettings, Assembly-CSharp
         m_MethodName: ShowTitleScreenPanel
         m_Mode: 1
@@ -3658,6 +3690,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 940437401}
   m_CullTransparentMesh: 1
+--- !u!1 &970129975
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 970129977}
+  - component: {fileID: 970129976}
+  m_Layer: 0
+  m_Name: Tournament Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &970129976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970129975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c25e511de8e414bb1b17ddba3adfce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  titleScreenPanel: {fileID: 2099343266}
+  playerInputPanel: {fileID: 771584929}
+  timerInputPanel: {fileID: 298897234}
+  playerListPanel: {fileID: 2060396231}
+  tournamentPanel: {fileID: 881838934}
+--- !u!4 &970129977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970129975}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1006937477
 GameObject:
   m_ObjectHideFlags: 0
@@ -4011,7 +4092,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1652617234}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TournamentSettings, Assembly-CSharp
         m_MethodName: ShowTimeInputPanel
         m_Mode: 1
@@ -4352,7 +4433,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1652617234}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TournamentSettings, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
@@ -4499,9 +4580,10 @@ RectTransform:
   m_Children:
   - {fileID: 364530741}
   - {fileID: 2099343267}
+  - {fileID: 1793127595}
   - {fileID: 1652617232}
   - {fileID: 881838932}
-  - {fileID: 1793127595}
+  - {fileID: 2060396228}
   - {fileID: 98810960}
   - {fileID: 1261974193}
   m_Father: {fileID: 0}
@@ -6516,7 +6598,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1652617234}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TournamentSettings, Assembly-CSharp
         m_MethodName: AddSecond
         m_Mode: 1
@@ -6850,9 +6932,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1652617232}
   - component: {fileID: 1652617233}
-  - component: {fileID: 1652617234}
   m_Layer: 5
-  m_Name: Tournament Setting
+  m_Name: Tournament Settings Panels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6871,7 +6952,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 771584926}
-  - {fileID: 2060396228}
   - {fileID: 298897235}
   m_Father: {fileID: 1137802209}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6888,25 +6968,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1652617231}
   m_CullTransparentMesh: 1
---- !u!114 &1652617234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1652617231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60c25e511de8e414bb1b17ddba3adfce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  titleScreenPanel: {fileID: 2099343266}
-  playerInputPanel: {fileID: 771584925}
-  addPlayerInput: {fileID: 1890399093}
-  playerList: {fileID: 2060396231}
-  timeInputPanel: {fileID: 298897234}
-  timerText: {fileID: 1734621919}
-  tournamentPanel: {fileID: 881838934}
 --- !u!1 &1734621917
 GameObject:
   m_ObjectHideFlags: 0
@@ -7924,9 +7985,9 @@ RectTransform:
   - {fileID: 151143657}
   m_Father: {fileID: 1306942926}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: -140}
   m_SizeDelta: {x: 280, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1890399093
@@ -8227,7 +8288,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1652617234}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TournamentSettings, Assembly-CSharp
         m_MethodName: ShowPlayerEntryPanel
         m_Mode: 1
@@ -8706,7 +8767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2060396228
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8722,7 +8783,7 @@ RectTransform:
   - {fileID: 863885690}
   - {fileID: 2055978646}
   - {fileID: 345717939}
-  m_Father: {fileID: 1652617232}
+  m_Father: {fileID: 1137802209}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -8816,9 +8877,9 @@ RectTransform:
   - {fileID: 108721083}
   m_Father: {fileID: 1306942926}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: 0}
   m_SizeDelta: {x: 400, y: 70}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &2099343266
@@ -8928,4 +8989,5 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 1137802209}
   - {fileID: 1238476283}
+  - {fileID: 970129977}
   - {fileID: 1844624849}
