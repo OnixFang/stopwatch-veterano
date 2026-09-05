@@ -11,7 +11,6 @@ public class PlayerInputPanel : MonoBehaviour
   [SerializeField] PlayerListPanel playerListPanel;
 
   public event Action<string> CreatePlayerRequested;
-  public event Action ConfigureTimeRequested;
 
   void Awake()
   {
@@ -56,10 +55,5 @@ public class PlayerInputPanel : MonoBehaviour
   void OnPlayerAdded(Player player)
   {
     addPlayerInput.text = "";
-  }
-
-  public void ConfigureTimeClickHandler()
-  {
-    ConfigureTimeRequested?.Invoke();
   }
 }
