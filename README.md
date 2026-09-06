@@ -4,7 +4,7 @@ A stopwatch challenge game built with Unity for a youth ministry (Pastoral Juven
 
 Players compete to stop a stopwatch as close as possible to a target time. The player with the smallest difference from the target time wins.
 
-> **Latest Release:** v0.2.1
+> **Latest Release:** v0.3.0
 
 ---
 
@@ -18,10 +18,14 @@ Main screen of the game. Checkout credits for more info!
 
 ### Tournament Setup
 
-![Tournament Settings](docs/images/tournament-settings.jpg)
-
 1. Add **2 or more players**.
+
+![Player Input](docs/images/tournament-settings-1.jpg)
+
 2. Enter the target time (in seconds).
+
+![Timer Input](docs/images/tournament-settings-2.jpg)
+
 3. Click **Start Game**.
 
 ---

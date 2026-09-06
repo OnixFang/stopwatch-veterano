@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [0.3.0] - 2026-09-06
+
+### Added
+
+- Event-driven player management, timer configuration, tournament navigation, and gameplay state handling.
+- Shared `TimeFormatter` utility for consistent time display.
+- Validation for duplicate players, maximum player count, and invalid timer values.
+
+### Changed
+
+- Refactored tournament logic into dedicated controllers and UI panel components.
+- Reorganized scripts by responsibility into Controllers, UI, Models, Audio, and Utilities folders.
+- Renamed audio data properties for consistency.
+
+---
+
 ## [0.2.1] - 2026-08-15
 
 ### Added

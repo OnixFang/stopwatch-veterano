@@ -5538,7 +5538,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: v<size=12> </size>0.2.1
+  m_text: v<size=12> </size>0.3.0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e5f7547f959d5c45864c390153b2bff, type: 2}
   m_sharedMaterial: {fileID: 1838652652393329634, guid: 5e5f7547f959d5c45864c390153b2bff, type: 2}
@@ -7716,16 +7716,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   soundEffects:
-  - type: 0
+  - sound: 0
     clip: {fileID: 8300000, guid: a4f05f94c1340a745ad8d0db9cb8918a, type: 3}
-  - type: 1
+  - sound: 1
     clip: {fileID: 8300000, guid: 50c6af1f52c93094b96d6b394b06d195, type: 3}
-  - type: 2
+  - sound: 2
     clip: {fileID: 8300000, guid: e1076b167b09a7247b7e1080eceb774f, type: 3}
-  - type: 3
+  - sound: 3
     clip: {fileID: 8300000, guid: e1076b167b09a7247b7e1080eceb774f, type: 3}
   musics:
-  - type: 0
+  - music: 0
     clip: {fileID: 8300000, guid: 77e40ae27aab91747839fee7b3478576, type: 3}
   sfxSource: {fileID: 1844624850}
   musicSource: {fileID: 1844624851}
