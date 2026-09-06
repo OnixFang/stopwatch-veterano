@@ -75,5 +75,6 @@ public class TournamentNavigator : MonoBehaviour
     tournamentGamePanels.SetActive(false);
     tournamentController.ResetSettings();
     playerInputPanel.SetActive(true);
+    AudioManager.Instance.PlaySFX(SoundEffect.MenuAccept);
   }
 }

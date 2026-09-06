@@ -115,5 +115,6 @@ public class StopwatchController : MonoBehaviour
   {
     NextPlayerRequested?.Invoke();
     nextPlayerButton.SetActive(false);
+    AudioManager.Instance.PlaySFX(SoundEffect.MenuAccept);
   }
 }
