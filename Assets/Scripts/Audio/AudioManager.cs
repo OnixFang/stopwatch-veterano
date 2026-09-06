@@ -25,7 +25,7 @@ public class AudioManager : MonoBehaviour
 
   public void PlaySFX(SoundEffect sound)
   {
-    SoundEffectData soundData = soundEffects.Find(x => x.type == sound);
+    SoundEffectData soundData = soundEffects.Find(x => x.sound == sound);
 
     if (soundData != null)
     {
@@ -35,7 +35,7 @@ public class AudioManager : MonoBehaviour
 
   public void PlayMusic(Music music)
   {
-    MusicData musicData = musics.Find(x => x.type == music);
+    MusicData musicData = musics.Find(x => x.music == music);
 
     if (musicData != null)
     {

@@ -3,6 +3,6 @@ using UnityEngine;
 [System.Serializable]
 public class SoundEffectData
 {
-  public SoundEffect type;
+  public SoundEffect sound;
   public AudioClip clip;
 }
