@@ -484,7 +484,7 @@ GameObject:
   - component: {fileID: 157069934}
   - component: {fileID: 157069933}
   m_Layer: 5
-  m_Name: New Game button
+  m_Name: Button New Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -554,9 +554,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 881838934}
-        m_TargetAssemblyTypeName: TournamentMode, Assembly-CSharp
-        m_MethodName: BackToSettings
+      - m_Target: {fileID: 1036833906}
+        m_TargetAssemblyTypeName: TournamentNavigator, Assembly-CSharp
+        m_MethodName: StopwatchNewGameHandler
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1052,7 +1052,7 @@ RectTransform:
   - {fileID: 1649989029}
   - {fileID: 1356160718}
   - {fileID: 1113580496}
-  m_Father: {fileID: 1652617232}
+  m_Father: {fileID: 1036833905}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1109,6 +1109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a776f8f5d5daca848ba7b1708e333c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimerInputPanel
+  tournamentController: {fileID: 970129976}
   timerText: {fileID: 1734621919}
   plusButton: {fileID: 1552795231}
   minusButton: {fileID: 562734580}
@@ -1532,7 +1533,7 @@ GameObject:
   - component: {fileID: 352681748}
   - component: {fileID: 352681747}
   m_Layer: 5
-  m_Name: Start/Stop Button
+  m_Name: Button Start/Stop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1950,7 +1951,7 @@ GameObject:
   - component: {fileID: 427319366}
   - component: {fileID: 427319368}
   m_Layer: 5
-  m_Name: Stopwatch Group
+  m_Name: Stopwatch UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1992,9 +1993,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2738f70b24e4b245b67a6ebc6a895ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimerManager
+  tournamentController: {fileID: 970129976}
   timerText: {fileID: 1363146286}
-  tournamentMode: {fileID: 881838934}
+  stopwatchButton: {fileID: 352681747}
   tipPanel: {fileID: 1223065795}
+  objectiveText: {fileID: 1160537939}
+  nextPlayerButton: {fileID: 1229684042}
+  newGameButton: {fileID: 157069931}
 --- !u!1 &453310450
 GameObject:
   m_ObjectHideFlags: 0
@@ -2982,7 +2987,7 @@ RectTransform:
   - {fileID: 940437402}
   - {fileID: 1306942926}
   - {fileID: 1073939600}
-  m_Father: {fileID: 1652617232}
+  m_Father: {fileID: 1036833905}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3498,7 +3503,6 @@ GameObject:
   m_Component:
   - component: {fileID: 881838932}
   - component: {fileID: 881838933}
-  - component: {fileID: 881838934}
   m_Layer: 5
   m_Name: Tournament Game Panels
   m_TagString: Untagged
@@ -3535,28 +3539,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881838931}
   m_CullTransparentMesh: 1
---- !u!114 &881838934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881838931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc1bdccb196ff484a8cdbc4ddcfd766e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  tournamentSettings: {fileID: 0}
-  playerInputPanel: {fileID: 771584925}
-  rankingPanel: {fileID: 1839688607}
-  timerManager: {fileID: 427319368}
-  backToSettingsButton: {fileID: 157069933}
-  startStopButton: {fileID: 352681747}
-  nextPlayerButton: {fileID: 1229684043}
-  objectiveText: {fileID: 1160537939}
-  tipPanel: {fileID: 1223065795}
-  playerList: {fileID: 2060396231}
 --- !u!1 &940437401
 GameObject:
   m_ObjectHideFlags: 0
@@ -3642,7 +3624,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1036833906}
         m_TargetAssemblyTypeName: TournamentNavigator, Assembly-CSharp
-        m_MethodName: ShowTitleScreenPanel
+        m_MethodName: PlayerInputBackHandler
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3720,8 +3702,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   playerInputPanel: {fileID: 771584929}
-  timerInputPanel: {fileID: 298897234}
+  timerInputPanel: {fileID: 298897238}
   playerListPanel: {fileID: 2060396231}
+  rankingPanel: {fileID: 1839688607}
+  stopwatchController: {fileID: 427319368}
 --- !u!4 &970129977
 Transform:
   m_ObjectHideFlags: 0
@@ -3905,7 +3889,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2060396228}
-  - {fileID: 1652617232}
+  - {fileID: 771584926}
+  - {fileID: 298897235}
   - {fileID: 881838932}
   m_Father: {fileID: 1137802209}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3925,9 +3910,7 @@ MonoBehaviour:
   titleScreenPanel: {fileID: 2099343266}
   playerInputPanel: {fileID: 771584925}
   timerInputPanel: {fileID: 298897234}
-  playerListPanel: {fileID: 2060396231}
   tournamentGamePanels: {fileID: 881838931}
-  tournamentSettingsPanels: {fileID: 1652617231}
 --- !u!1 &1055516270
 GameObject:
   m_ObjectHideFlags: 0
@@ -4146,7 +4129,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1036833906}
         m_TargetAssemblyTypeName: TournamentNavigator, Assembly-CSharp
-        m_MethodName: ShowTimeInputPanel
+        m_MethodName: PlayerInputConfigureTimeHandler
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4487,7 +4470,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1036833906}
         m_TargetAssemblyTypeName: TournamentNavigator, Assembly-CSharp
-        m_MethodName: ShowTournamentGamePanels
+        m_MethodName: TimerInputStarGameHandler
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4980,7 +4963,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 5, z: 0, w: 0}
+  m_margin: {x: 3, y: 5, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5217,7 +5200,7 @@ GameObject:
   - component: {fileID: 1229684044}
   - component: {fileID: 1229684043}
   m_Layer: 5
-  m_Name: Next Player Button
+  m_Name: Button Next Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5267,9 +5250,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 881838934}
-        m_TargetAssemblyTypeName: TournamentMode, Assembly-CSharp
-        m_MethodName: HandleNextPlayer
+      - m_Target: {fileID: 427319368}
+        m_TargetAssemblyTypeName: StopwatchController, Assembly-CSharp
+        m_MethodName: NextPlayerClickHandler
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6972,52 +6955,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649989028}
   m_CullTransparentMesh: 1
---- !u!1 &1652617231
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1652617232}
-  - component: {fileID: 1652617233}
-  m_Layer: 5
-  m_Name: Tournament Settings Panels
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1652617232
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1652617231}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 771584926}
-  - {fileID: 298897235}
-  m_Father: {fileID: 1036833905}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1280, y: 720}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1652617233
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1652617231}
-  m_CullTransparentMesh: 1
 --- !u!1 &1734621917
 GameObject:
   m_ObjectHideFlags: 0
@@ -8215,7 +8152,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 250, y: 100}
+  m_SizeDelta: {x: 280, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1900806891
 MonoBehaviour:
@@ -8340,7 +8277,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1036833906}
         m_TargetAssemblyTypeName: TournamentNavigator, Assembly-CSharp
-        m_MethodName: ShowPlayerInputPanel
+        m_MethodName: TimerInputBackHandler
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

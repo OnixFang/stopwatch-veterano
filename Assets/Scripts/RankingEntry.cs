@@ -9,11 +9,8 @@ public class RankingEntry : MonoBehaviour
 
   public void SetData(Player player, string ordinalPosition)
   {
-    int seconds = (int)player.Time.TotalSeconds;
-    int centiseconds = player.Time.Milliseconds / 10;
-
     positionText.text = ordinalPosition;
     playerName.text = player.Name;
-    time.text = $"{seconds:00}:{centiseconds:00}";
+    time.text = TimeFormatter.Format(player.Time);
   }
 }

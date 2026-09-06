@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TournamentController : MonoBehaviour
@@ -7,6 +8,8 @@ public class TournamentController : MonoBehaviour
   [SerializeField] PlayerInputPanel playerInputPanel;
   [SerializeField] TimerInputPanel timerInputPanel;
   [SerializeField] PlayerListPanel playerListPanel;
+  [SerializeField] RankingPanel rankingPanel;
+  [SerializeField] StopwatchController stopwatchController;
 
   // Constants
   static private readonly TimeSpan INITIAL_TIMER = TimeSpan.FromSeconds(3);
@@ -17,17 +20,29 @@ public class TournamentController : MonoBehaviour
   TimeSpan _timer = INITIAL_TIMER;
   public TimeSpan Timer { get => _timer; private set => _timer = value; }
 
-  // Events
+  // Game State
+  Player currentPlayer;
+  int currentPlayerIndex;
+
+  // Settings Events
   public event Action<Player> PlayerAdded;
   public event Action<Player> PlayerRemoved;
   public event Action<TimeSpan> TimeChanged;
   public event Action SettingsReset;
+
+  // Tournament Events
+  public event Action TournamentStarted;
+  public event Action<Player> PlayerTurnStarted;
+  public event Action<Player> PlayerTurnFinished;
+  public event Action TournamentFinished;
 
   void Awake()
   {
     playerInputPanel.CreatePlayerRequested += AddPlayer;
     playerListPanel.RemovePlayerRequested += RemovePlayer;
     timerInputPanel.UpdateTimerRequested += UpdateTimer;
+    stopwatchController.StopwatchStopped += OnStopwatchStopped;
+    stopwatchController.NextPlayerRequested += ChangePlayer;
   }
 
   // Player Input
@@ -88,16 +103,54 @@ public class TournamentController : MonoBehaviour
   }
 
   // Gameplay
-  public TournamentData GetTournamentData()
+  public void StartTournament()
   {
-    return new(players, Timer);
+    TournamentStarted?.Invoke();
+    currentPlayerIndex = 0;
+    ChangePlayer();
+    RenderRankings();
+  }
+
+  public void OnStopwatchStopped(TimeSpan elapsedTime)
+  {
+    currentPlayer.Time = elapsedTime;
+    currentPlayer.HasPlayed = true;
+    RenderRankings();
+    TournamentFinishedCheck();
+  }
+
+  void TournamentFinishedCheck()
+  {
+    // Increase player list index
+    currentPlayerIndex++;
+    // Is there a player in queue?
+    if (currentPlayerIndex < players.Count)
+    {
+      PlayerTurnFinished?.Invoke(currentPlayer);
+    }
+    else
+    {
+      TournamentFinished?.Invoke();
+      Debug.Log("Tournament Finished!");
+    }
+  }
+
+  void ChangePlayer()
+  {
+    currentPlayer = players[currentPlayerIndex];
+    PlayerTurnStarted?.Invoke(currentPlayer);
+  }
+
+  void RenderRankings()
+  {
+    List<Player> sortedPlayers = players.FindAll(player => player.HasPlayed).OrderBy(player => (Timer - player.Time).Duration()).ToList();
+    rankingPanel.RenderRankings(sortedPlayers, Timer);
   }
 
   public void ResetSettings()
   {
     players.Clear();
     Timer = INITIAL_TIMER;
-
     SettingsReset?.Invoke();
   }
 }

@@ -26,11 +26,13 @@ public class PlayerInputPanel : MonoBehaviour
   {
     tournamentController.PlayerAdded += OnPlayerAdded;
     StartCoroutine(ActivatePlayerInput());
+    playerListPanel.ActivateRemoveButtons();
   }
 
   void OnDisable()
   {
     tournamentController.PlayerAdded -= OnPlayerAdded;
+    playerListPanel.DeactivateRemoveButtons();
   }
 
   IEnumerator ActivatePlayerInput()

@@ -15,6 +15,16 @@ public class PlayerListPanel : MonoBehaviour
   {
     tournamentController.PlayerAdded += OnPlayerAdded;
     tournamentController.PlayerRemoved += OnPlayerRemoved;
+    tournamentController.PlayerTurnStarted += MarkPlayer;
+    tournamentController.SettingsReset += OnSettingsReset;
+  }
+
+  void OnDisable()
+  {
+    tournamentController.PlayerAdded -= OnPlayerAdded;
+    tournamentController.PlayerRemoved -= OnPlayerRemoved;
+    tournamentController.PlayerTurnStarted -= MarkPlayer;
+    tournamentController.SettingsReset -= OnSettingsReset;
   }
 
   void OnPlayerAdded(Player player)
@@ -77,6 +87,12 @@ public class PlayerListPanel : MonoBehaviour
     {
       Destroy(playerList.GetChild(i).gameObject);
     }
+  }
+
+  void OnSettingsReset()
+  {
+    ResetList();
+    RemoveMarker();
   }
 
   public void ActivateRemoveButtons()

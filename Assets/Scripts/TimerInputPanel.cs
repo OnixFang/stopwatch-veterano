@@ -38,35 +38,6 @@ public class TimerInputPanel : MonoBehaviour
 
   void RenderTimer(TimeSpan time)
   {
-    int seconds = (int)time.TotalSeconds;
-    int centiseconds = time.Milliseconds / 10;
-
-    timerText.text = $"{seconds:00}:{centiseconds:00}";
+    timerText.text = TimeFormatter.Format(time);
   }
-
-  // public void AddSecond()
-  // {
-  //   if (Timer < TimeSpan.FromSeconds(99))
-  //   {
-  //     Timer += TimeSpan.FromSeconds(1);
-  //     AudioManager.Instance.PlaySFX(SoundEffect.TimerClick);
-  //   }
-  //   else
-  //   {
-  //     Debug.Log("Cannot increase timer");
-  //   }
-  // }
-
-  // public void SubtractSecond()
-  // {
-  //   if (Timer > TimeSpan.FromSeconds(1))
-  //   {
-  //     Timer -= TimeSpan.FromSeconds(1);
-  //     AudioManager.Instance.PlaySFX(SoundEffect.TimerClick);
-  //   }
-  //   else
-  //   {
-  //     Debug.Log("Cannot reduce timer");
-  //   }
-  // }
 }
