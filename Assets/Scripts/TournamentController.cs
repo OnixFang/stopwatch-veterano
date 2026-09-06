@@ -5,12 +5,17 @@ using UnityEngine;
 public class TournamentController : MonoBehaviour
 {
   [SerializeField] PlayerInputPanel playerInputPanel;
-  [SerializeField] GameObject timerInputPanel;
+  [SerializeField] TimerInputPanel timerInputPanel;
   [SerializeField] PlayerListPanel playerListPanel;
+
+  // Constants
+  static private readonly TimeSpan INITIAL_TIMER = TimeSpan.FromSeconds(3);
+  static private readonly TimeSpan MAX_TIMER = TimeSpan.FromSeconds(99);
 
   // Tournament data
   readonly List<Player> players = new();
-  TimeSpan timer = TimeSpan.FromSeconds(3); // default time is 3 seconds
+  TimeSpan _timer = INITIAL_TIMER;
+  public TimeSpan Timer { get => _timer; private set => _timer = value; }
 
   // Events
   public event Action<Player> PlayerAdded;
@@ -21,10 +26,11 @@ public class TournamentController : MonoBehaviour
   void Awake()
   {
     playerInputPanel.CreatePlayerRequested += AddPlayer;
-
     playerListPanel.RemovePlayerRequested += RemovePlayer;
+    timerInputPanel.UpdateTimerRequested += UpdateTimer;
   }
 
+  // Player Input
   void AddPlayer(string name)
   {
     if (players.Count >= 15)
@@ -57,6 +63,19 @@ public class TournamentController : MonoBehaviour
     AudioManager.Instance.PlaySFX(SoundEffect.TimerClick);
   }
 
+  // Timer Input
+  void UpdateTimer(TimeSpan timeAmount)
+  {
+    TimeSpan newTimer = Timer + timeAmount;
+
+    if (newTimer <= TimeSpan.Zero || newTimer > MAX_TIMER)
+      return;
+
+    Timer += timeAmount;
+    AudioManager.Instance.PlaySFX(SoundEffect.TimerClick);
+    TimeChanged?.Invoke(Timer);
+  }
+
   // Navigation validation
   public bool CanConfigureTime()
   {
@@ -65,19 +84,19 @@ public class TournamentController : MonoBehaviour
 
   public bool CanStartGame()
   {
-    return players.Count > 1 && timer > TimeSpan.Zero;
+    return players.Count > 1 && Timer > TimeSpan.Zero;
   }
 
   // Gameplay
   public TournamentData GetTournamentData()
   {
-    return new(players, timer);
+    return new(players, Timer);
   }
 
   public void ResetSettings()
   {
     players.Clear();
-    timer = TimeSpan.FromSeconds(3);
+    Timer = INITIAL_TIMER;
 
     SettingsReset?.Invoke();
   }

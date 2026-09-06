@@ -28,7 +28,7 @@ public class PlayerInputPanel : MonoBehaviour
     StartCoroutine(ActivatePlayerInput());
   }
 
-  private void OnDisable()
+  void OnDisable()
   {
     tournamentController.PlayerAdded -= OnPlayerAdded;
   }
